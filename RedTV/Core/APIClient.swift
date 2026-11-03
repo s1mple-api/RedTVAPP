@@ -2,8 +2,8 @@ import Foundation
 import Observation
 
 struct ServerConfiguration: Codable, Equatable {
-    var apiURL = "https://lifetv.icu"
-    var websiteURL = "https://lifetv.icu"
+    var apiURL = "https://redtv.icu"
+    var websiteURL = "https://redtv.icu"
 
     var namespace: String { apiURL.trimmingCharacters(in: CharacterSet(charactersIn: "/")) }
     static func validURL(_ raw: String) -> URL? {
@@ -65,7 +65,7 @@ final class APIClient {
         if post {
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue("1", forHTTPHeaderField: "X-Life-Request")
+            request.setValue("1", forHTTPHeaderField: "X-Red-Request")
             request.setValue(configuration.origin, forHTTPHeaderField: "Origin")
             request.httpBody = body
         }

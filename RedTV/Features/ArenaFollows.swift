@@ -13,6 +13,6 @@ struct ArenaFollowsView: View {
                     }.swipeActions { Button("取消关注", role: .destructive) { arena.remove(item) } }
                 }
             }
-        }.scrollContentBackground(.hidden).background(LifeTheme.paper).navigationTitle("赛事关注").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation()
+        }.scrollContentBackground(.hidden).background(RedTheme.paper).navigationTitle("赛事关注").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
     }
 }

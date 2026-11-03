@@ -27,8 +27,8 @@ struct ArenaMatchCenterDetailView: View {
                     ArenaStamp(date: result.fetchedAt, cached: result.cached)
                     SourceLink(raw: result.value.match.sourceURL.absoluteString, title: "在完美世界电竞查看比赛")
                 }
-            }.padding(20).lifePage()
-        }.background(LifeTheme.paper).navigationTitle("比赛详情").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation()
+            }.padding(20).redPage()
+        }.background(RedTheme.paper).navigationTitle("比赛详情").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
             .task(id: id) { await load() }
             .task(id: liveKey) {
                 guard scenePhase == .active, let detail = resource.value?.value, detail.match.status == 1, let namiID = detail.match.namiID, namiID > 0 else { live.stop(); return }
@@ -58,7 +58,7 @@ struct ArenaMatchCenterDetailView: View {
                     teamLink(match.team2)
                 }
                 Text(ArenaDate.format(match.start) + " · 北京时间").font(.caption2).foregroundStyle(.secondary)
-            }.padding(.vertical, 20).padding(.horizontal, 10).frame(maxWidth: .infinity).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 18))
+            }.padding(.vertical, 20).padding(.horizontal, 10).frame(maxWidth: .infinity).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 18))
             if match.status == 1, live.score == nil {
                 Notice(text: live.connecting ? "正在读取当前地图的小局比分，当前显示的数值为系列赛大局比分。" : (live.error ?? "来源暂未提供实时小局比分，当前显示系列赛大局比分。"))
             }
@@ -70,7 +70,7 @@ struct ArenaMatchCenterDetailView: View {
         if match.status == 1, let score = live.score {
             VStack(spacing: 7) {
                 Text("\(score.left) : \(score.right)").font(.system(size: 36, weight: .black, design: .rounded)).monospacedDigit()
-                ArenaMapLabel(name: score.mapName, size: 18).font(.caption.bold()).foregroundStyle(LifeTheme.red)
+                ArenaMapLabel(name: score.mapName, size: 18).font(.caption.bold()).foregroundStyle(RedTheme.red)
                 Text(score.mapEnded ? "该地图已结束" : score.round.map { "第 \($0) 回合" } ?? "当前地图小局比分").font(.system(size: 10)).foregroundStyle(.secondary)
                 Text("大局 \(match.score1.map(String.init) ?? "–") : \(match.score2.map(String.init) ?? "–")").font(.caption2.monospacedDigit()).foregroundStyle(.secondary)
             }.frame(minWidth: 96).accessibilityIdentifier("match-live-score")
@@ -151,7 +151,7 @@ struct ArenaMatchCenterDetailView: View {
                 Text(name).font(.caption.bold())
             }.padding(.horizontal, 12).frame(minHeight: 42)
                 .foregroundStyle(selected ? Color.white : Color.primary)
-                .background(selected ? LifeTheme.red : LifeTheme.card, in: Capsule())
+                .background(selected ? RedTheme.red : RedTheme.card, in: Capsule())
         }.buttonStyle(.plain).accessibilityIdentifier("match-stats-map-\(id ?? "all")")
             .accessibilityAddTraits(selected ? .isSelected : [])
     }
@@ -162,7 +162,7 @@ struct ArenaMatchCenterDetailView: View {
             analysisTeam(detail.match.team1)
             Text("对比").font(.caption2).foregroundStyle(.secondary)
             analysisTeam(detail.match.team2)
-        }.padding(14).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 14))
+        }.padding(14).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 14))
         ResourceContent(resource: analysis, retry: { Task { await loadAnalysis(detail) } }) { result in
             if result.value.rows.isEmpty { Notice(text: "暂无这两支战队的地图分析数据。") }
             ForEach(result.value.rows) { row in MatchMapAnalysisCard(row: row) }
@@ -202,13 +202,13 @@ private struct MatchVetoFlowStep: View {
     let veto: ArenaMapVeto
     let number: Int
     let isLast: Bool
-    private var accent: Color { veto.type == 1 ? .secondary : LifeTheme.red }
+    private var accent: Color { veto.type == 1 ? .secondary : RedTheme.red }
     private var actionIcon: String { veto.type == 1 ? "minus.circle.fill" : veto.type == 2 ? "checkmark.circle.fill" : "flag.checkered" }
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             Text(String(format: "%02d", number)).font(.system(size: 11, weight: .bold, design: .monospaced))
                 .foregroundStyle(accent).frame(width: 28, height: 28)
-                .background(LifeTheme.paper, in: Circle())
+                .background(RedTheme.paper, in: Circle())
                 .overlay { Circle().strokeBorder(accent.opacity(0.35), lineWidth: 1.5) }
                 .padding(.top, 18)
             VStack(alignment: .leading, spacing: 11) {
@@ -227,12 +227,12 @@ private struct MatchVetoFlowStep: View {
                     if veto.type == 3 { Text("· 决胜地图").font(.caption).foregroundStyle(.secondary) }
                 }
             }.padding(14).frame(maxWidth: .infinity, alignment: .leading)
-                .background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 15))
+                .background(RedTheme.card, in: RoundedRectangle(cornerRadius: 15))
         }.padding(.bottom, isLast ? 0 : 10)
             .background(alignment: .topLeading) {
                 if !isLast {
                     GeometryReader { geometry in
-                        Rectangle().fill(LifeTheme.red.opacity(0.16)).frame(width: 1.5, height: max(0, geometry.size.height - 14)).offset(x: 13.25, y: 45)
+                        Rectangle().fill(RedTheme.red.opacity(0.16)).frame(width: 1.5, height: max(0, geometry.size.height - 14)).offset(x: 13.25, y: 45)
                     }.accessibilityHidden(true)
                 }
             }
@@ -258,7 +258,7 @@ private struct MatchPlayerStatsCard: View {
             playerTable(match.team1, rows: map.left)
             if !map.left.isEmpty && !map.right.isEmpty { Divider() }
             playerTable(match.team2, rows: map.right)
-        }.padding(16).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 18))
+        }.padding(16).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 18))
             .accessibilityElement(children: .contain).accessibilityIdentifier("match-result-map-\(map.id)")
     }
     @ViewBuilder private func playerTable(_ team: ArenaTeam, rows: [ArenaPlayerLine]) -> some View {
@@ -277,7 +277,7 @@ private struct MatchPlayerStatsCard: View {
                             Text(line.player.name).font(.subheadline.weight(.medium)).lineLimit(1).frame(maxWidth: .infinity, alignment: .leading)
                             Text("\(line.kills.map(String.init) ?? "–")–\(line.deaths.map(String.init) ?? "–")").frame(width: 52)
                             Text(line.adr.map { String(format: "%.0f", $0) } ?? "–").frame(width: 40)
-                            Text(line.rating.map { String(format: "%.2f", $0) } ?? "–").frame(width: 47).foregroundStyle(LifeTheme.positive)
+                            Text(line.rating.map { String(format: "%.2f", $0) } ?? "–").frame(width: 47).foregroundStyle(RedTheme.positive)
                         }.font(.caption.monospacedDigit()).padding(.vertical, 12)
                     }.buttonStyle(.plain)
                     if line.id != rows.last?.id { Divider().opacity(0.6) }
@@ -341,7 +341,7 @@ private struct MatchPlayerDuelsCard: View {
             }.accessibilityIdentifier("match-duel-matrix")
             Label("横向滑动查看完整对位", systemImage: "hand.draw")
                 .font(.caption2).foregroundStyle(.secondary)
-        }.padding(16).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 18))
+        }.padding(16).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 18))
     }
     @ViewBuilder private func duelPlayer(_ player: ArenaPlayer, vertical: Bool) -> some View {
         NavigationLink(value: Route.arenaPlayer(player.id)) {
@@ -360,7 +360,7 @@ private struct MatchPlayerDuelsCard: View {
     }
     private func duelCell(_ left: ArenaPlayer, _ right: ArenaPlayer) -> some View {
         let score = duels.score(leftID: left.id, rightID: right.id)
-        let color: Color = score.map { $0.leftKills > $0.rightKills ? LifeTheme.positive : $0.leftKills < $0.rightKills ? LifeTheme.red : Color.secondary } ?? .secondary
+        let color: Color = score.map { $0.leftKills > $0.rightKills ? RedTheme.positive : $0.leftKills < $0.rightKills ? RedTheme.red : Color.secondary } ?? .secondary
         return Text(score.map { "\($0.leftKills) : \($0.rightKills)" } ?? "–")
             .font(.system(size: 12, weight: .semibold, design: .monospaced)).foregroundStyle(color)
             .lineLimit(1).minimumScaleFactor(0.75)
@@ -383,22 +383,22 @@ private struct MatchMapAnalysisCard: View {
             HStack(spacing: 18) { winBar(row.leftWin, trailing: false); winBar(row.rightWin, trailing: true) }
             if row.leftPick != "–" || row.rightPick != "–" { metric(row.leftPick, title: "选择率", right: row.rightPick) }
             if row.leftBan != "–" || row.rightBan != "–" { metric(row.leftBan, title: "禁用率", right: row.rightBan) }
-        }.padding(16).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 16))
+        }.padding(16).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 16))
     }
     private func metric(_ left: String, title: String, right: String, emphasized: Bool = false) -> some View {
         HStack {
-            Text(left).font(emphasized ? .title3.monospacedDigit().bold() : .caption.monospacedDigit()).foregroundStyle(emphasized ? LifeTheme.red : Color.primary).frame(maxWidth: .infinity, alignment: .leading)
+            Text(left).font(emphasized ? .title3.monospacedDigit().bold() : .caption.monospacedDigit()).foregroundStyle(emphasized ? RedTheme.red : Color.primary).frame(maxWidth: .infinity, alignment: .leading)
             Text(title).font(.caption2).foregroundStyle(.secondary)
-            Text(right).font(emphasized ? .title3.monospacedDigit().bold() : .caption.monospacedDigit()).foregroundStyle(emphasized ? LifeTheme.red : Color.primary).frame(maxWidth: .infinity, alignment: .trailing)
+            Text(right).font(emphasized ? .title3.monospacedDigit().bold() : .caption.monospacedDigit()).foregroundStyle(emphasized ? RedTheme.red : Color.primary).frame(maxWidth: .infinity, alignment: .trailing)
         }
     }
     private func winBar(_ raw: String, trailing: Bool) -> some View {
         GeometryReader { geometry in
             let rate = Double(raw.replacingOccurrences(of: "%", with: ""))
             ZStack(alignment: trailing ? .trailing : .leading) {
-                Capsule().fill(LifeTheme.red.opacity(0.08))
+                Capsule().fill(RedTheme.red.opacity(0.08))
                 if let rate, rate.isFinite, (0...100).contains(rate) {
-                    Capsule().fill(LifeTheme.red.opacity(0.65)).frame(width: geometry.size.width * rate / 100)
+                    Capsule().fill(RedTheme.red.opacity(0.65)).frame(width: geometry.size.width * rate / 100)
                 }
             }
         }.frame(height: 5).accessibilityHidden(true)

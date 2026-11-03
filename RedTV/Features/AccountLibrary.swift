@@ -7,13 +7,13 @@ struct ProfileView: View {
             Section {
                 NavigationLink(value: Route.account) {
                     HStack(spacing: 18) {
-                        Image(systemName: "person.crop.circle.fill").font(.system(size: 52)).foregroundStyle(LifeTheme.red)
+                        Image(systemName: "person.crop.circle.fill").font(.system(size: 52)).foregroundStyle(RedTheme.red)
                         VStack(alignment: .leading, spacing: 8) {
                             Text(store.user?.displayName ?? "让热爱，有迹可循。").font(.headline)
                             Text(store.user == nil ? "登录以同步新闻收藏与阅读记录" : "@\(store.user!.username)").font(.caption).foregroundStyle(.secondary)
                         }
                     }.padding(.vertical, 12)
-                }.listRowBackground(LifeTheme.rose)
+                }.listRowBackground(RedTheme.rose)
             }
             Section("赛事与阅读") {
                 NavigationLink(value: Route.follows) { HStack { Label("赛事关注", systemImage: "star"); Spacer(); Text("\(store.arena.follows.count)").foregroundStyle(.secondary) } }.accessibilityIdentifier("arena-follows")
@@ -31,7 +31,7 @@ struct ProfileView: View {
             Section { Text(store.syncState).font(.caption).foregroundStyle(.secondary) }
         }.scrollContentBackground(.hidden).contentMargins(.top, 4, for: .scrollContent).listSectionSpacing(16)
             .frame(maxWidth: 760).frame(maxWidth: .infinity)
-            .lifeTabPage("我的", subtitle: "收藏热爱，记录每一次关注。", key: "profile")
+            .redTabPage("我的", subtitle: "收藏热爱，记录每一次关注。", key: "profile")
     }
 }
 
@@ -65,7 +65,7 @@ struct LibraryView: View {
                 if store.user != nil { Button("立即同步") { Task { await store.syncLibrary() } } }
                 else { NavigationLink("登录以跨设备同步", value: Route.account) }
             }
-        }.scrollContentBackground(.hidden).background(LifeTheme.paper).navigationTitle("我的资料库").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation()
+        }.scrollContentBackground(.hidden).background(RedTheme.paper).navigationTitle("我的资料库").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
             .refreshable { await store.syncLibrary() }
     }
 }
@@ -126,9 +126,9 @@ struct AccountView: View {
                     }.disabled(!valid || busy || store.sessionLoading).accessibilityIdentifier("auth-submit")
                 }
             }
-            if let error { Section { Text(error).foregroundStyle(LifeTheme.red).font(.subheadline) } }
+            if let error { Section { Text(error).foregroundStyle(RedTheme.red).font(.subheadline) } }
             if let error = store.syncError { Section { Text(error).font(.caption).foregroundStyle(.secondary); Button("重试账号连接") { Task { await store.loadSession() } } } }
-        }.scrollContentBackground(.hidden).background(LifeTheme.paper).navigationTitle("Red TV 账号").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation()
+        }.scrollContentBackground(.hidden).background(RedTheme.paper).navigationTitle("Red TV 账号").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
     }
 }
 
@@ -171,9 +171,9 @@ struct ConnectionSettingsView: View {
                 }.disabled(!configuration.isValid || testing).accessibilityIdentifier("settings-save")
             }
             if let notice { Section { Label(notice, systemImage: "checkmark.circle").foregroundStyle(.green).font(.subheadline) } }
-            if let error { Section { Text(error).foregroundStyle(LifeTheme.red).font(.subheadline) } }
+            if let error { Section { Text(error).foregroundStyle(RedTheme.red).font(.subheadline) } }
             Section { Text("切换服务后，资料库按服务与账号分别保存。匿名收藏可在登录时合并至该账号。").font(.caption).foregroundStyle(.secondary) }
-        }.scrollContentBackground(.hidden).background(LifeTheme.paper).navigationTitle("连接设置").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation()
+        }.scrollContentBackground(.hidden).background(RedTheme.paper).navigationTitle("连接设置").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
             .task { configuration = store.configuration }
     }
 }
@@ -190,7 +190,7 @@ struct AboutView: View {
                 Notice(text: "数据保留来源口径，比分需下拉刷新。连接失败时可展示 24 小时内成功读取的缓存并标注时间。新闻中文内容为自动翻译，详情提供来源链接。")
                 SourceLink(raw: "https://data.wanmei.com/csgo", title: "访问完美世界电竞")
                 Text("原生 iOS 客户端 · Swift / SwiftUI\n版本 2.0.0 · 独立客户端").font(.caption).foregroundStyle(.secondary).lineSpacing(8)
-            }.padding(24).lifePage()
-        }.background(LifeTheme.paper).navigationTitle("关于").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation()
+            }.padding(24).redPage()
+        }.background(RedTheme.paper).navigationTitle("关于").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
     }
 }

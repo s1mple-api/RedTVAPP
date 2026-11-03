@@ -1,6 +1,6 @@
 import XCTest
 import UIKit
-@testable import LifeTV
+@testable import RedTV
 
 final class WanmeiMatchDetailTests: XCTestCase {
     private func json(_ text: String) throws -> ArenaJSON { try JSONDecoder().decode(ArenaJSON.self, from: Data(text.utf8)) }

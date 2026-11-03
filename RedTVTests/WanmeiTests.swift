@@ -1,5 +1,5 @@
 import XCTest
-@testable import LifeTV
+@testable import RedTV
 
 final class WanmeiTests: XCTestCase {
     private func fixture(_ name: String) throws -> ArenaJSON {

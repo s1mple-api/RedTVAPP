@@ -1,5 +1,5 @@
 import XCTest
-@testable import LifeTV
+@testable import RedTV
 
 final class PlayerDuelsTests: XCTestCase {
     func testRecordedMatchKeepsSourcePairsAndReversedMapScores() throws {

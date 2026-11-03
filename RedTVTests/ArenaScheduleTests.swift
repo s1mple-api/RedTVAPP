@@ -1,5 +1,5 @@
 import XCTest
-@testable import LifeTV
+@testable import RedTV
 
 final class ArenaScheduleTests: XCTestCase {
     private func match(_ id: Int, stars: Int, status: Int, start: Int = 1793600000000) throws -> ArenaMatch {

@@ -4,12 +4,12 @@ Swift / SwiftUI 原生 iOS App，最低 iOS 17，无第三方依赖。围绕完�
 
 ## 用 Xcode 运行
 
-1. 打开 **LifeTV.xcodeproj**，不要单独运行 LifeTVApp.swift。安装后的 App 显示名称为 **Red TV**。
-2. 顶部选择 **LifeTV Run** 和一个已安装的 iPhone 模拟器，按 **⌘R**。
-3. LifeTV Run 使用 Debug 构建，不附加 LLDB。需要断点调试时选择 LifeTV；本机此前出现过 LLDB RPC Server 退出或启动挂起。
+1. 打开 **RedTV.xcodeproj**，不要单独运行 RedTVApp.swift。安装后的 App 显示名称为 **Red TV**。
+2. 顶部选择 **RedTV Run** 和一个已安装的 iPhone 模拟器，按 **⌘R**。
+3. RedTV Run 使用 Debug 构建，不附加 LLDB。需要断点调试时选择 RedTV；本机此前出现过 LLDB RPC Server 退出或启动挂起。
 4. 模拟器无需证书。真机运行需要在 Signing & Capabilities 选择自己的 Development Team，并按需调整 Bundle Identifier。
 
-`.xcodeproj` 是 Xcode 工程包，记录构建目标、设置、资源和测试。此工程使用同步文件夹，LifeTV 目录中的 Swift 文件自动参与 App 构建；单文件运行不会加载整个工程。无需重新新建工程。
+`.xcodeproj` 是 Xcode 工程包，记录构建目标、设置、资源和测试。此工程使用同步文件夹，RedTV 目录中的 Swift 文件自动参与 App 构建；单文件运行不会加载整个工程。无需重新新建工程。
 
 ## 原生信息结构
 
@@ -62,15 +62,15 @@ Swift / SwiftUI 原生 iOS App，最低 iOS 17，无第三方依赖。围绕完�
 
 ## BBC 与账号
 
-BBC 新闻及账号继续使用现有 Go 服务，默认 `https://lifetv.icu`，可在「我的 → 连接设置」修改。只请求 world-news，不调用旧 dashboard 聚合社区数据。新闻缩略图采用固定尺寸，避免异步加载使文本错位；详情的“查看英文原文 / 显示中文”同时切换标题、摘要和正文，英文正文未同步时提供 BBC 来源文章入口。完美世界连接不受此设置影响。
+BBC 新闻及账号继续使用现有 Go 服务，默认 `https://redtv.icu`，可在「我的 → 连接设置」修改。只请求 world-news，不调用旧 dashboard 聚合社区数据。新闻缩略图采用固定尺寸，避免异步加载使文本错位；详情的“查看英文原文 / 显示中文”同时切换标题、摘要和正文，英文正文未同步时提供 BBC 来源文章入口。完美世界连接不受此设置影响。
 
 - BBC 收藏 / 足迹按服务与账号隔离，支持匿名保存、登录合并和 tombstone 删除同步。
 - 比赛 / 赛事 / 战队 / 选手关注独立保存在本机，不发送给旧 Go 资料库接口。
-- 密码不保存。账号写入沿用 Cookie、Origin 与 X-Life-Request 的现有后端约定。
+- 密码不保存。账号写入沿用 Cookie、Origin 与 X-Red-Request 的现有后端约定。
 - Debug 允许 HTTP 本机联调；Release 仅接受 HTTPS。网站地址用于新闻分享与账号 Origin。
-- 当前环境连接 lifetv.icu 的 HTTPS 握手失败，因此 BBC 与真实账号同步尚未完成线上端到端验证。App 提供连接错误与重试。
+- 当前环境连接 redtv.icu 的 HTTPS 握手失败，因此 BBC 与真实账号同步尚未完成线上端到端验证。App 提供连接错误与重试。
 
-支持 `lifetv://wanmei/matches/2399855`、`lifetv://wanmei/events/8245`、`lifetv://article/123` 等自定义深链。普通 HTTPS 来源链接在系统浏览器打开；未配置 Universal Links。
+支持 `redtv://wanmei/matches/2399855`、`redtv://wanmei/events/8245`、`redtv://article/123` 等自定义深链。普通 HTTPS 来源链接在系统浏览器打开；未配置 Universal Links。
 
 ## CS 风格品牌
 
@@ -88,21 +88,21 @@ Red TV 品牌资源已通过 Debug / Release 构建及现有完整导航测试�
 重新生成资源：
 
 ```sh
-swift -module-cache-path /private/tmp/lifetv-swift-module-cache Scripts/GenerateIcon.swift
+swift -module-cache-path /private/tmp/redtv-swift-module-cache Scripts/GenerateIcon.swift
 ```
 
 ## 页面头部
 
-五个标签页共用 LifePageHeader / lifeTabPage：左侧融合标识、Red TV 与中文页名，右侧固定搜索 / 设置动作，下方一行说明。统一 20pt 内容边距与标题层级，移除重复的系统根导航标题和各页英文口号。头部固定在安全区域顶部，滚动正文时保留操作入口；详情页恢复原生返回导航。新闻从旧收藏或深链压入导航栈时使用嵌入模式，保留返回按钮。
+五个标签页共用 RedPageHeader / redTabPage：左侧融合标识、Red TV 与中文页名，右侧固定搜索 / 设置动作，下方一行说明。统一 20pt 内容边距与标题层级，移除重复的系统根导航标题和各页英文口号。头部固定在安全区域顶部，滚动正文时保留操作入口；详情页恢复原生返回导航。新闻从旧收藏或深链压入导航栈时使用嵌入模式，保留返回按钮。
 
 ## 构建与测试
 
 ```sh
-xcodebuild -project LifeTV.xcodeproj -scheme 'LifeTV Run' \
+xcodebuild -project RedTV.xcodeproj -scheme 'RedTV Run' \
   -destination 'platform=iOS Simulator,name=iPhone 18 Pro' \
   -derivedDataPath DerivedData CODE_SIGNING_ALLOWED=NO build
 
-xcodebuild -project LifeTV.xcodeproj -scheme 'LifeTV Run' \
+xcodebuild -project RedTV.xcodeproj -scheme 'RedTV Run' \
   -destination 'platform=iOS Simulator,name=iPhone 18 Pro' \
   -derivedDataPath DerivedData -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO test
 ```
@@ -112,12 +112,12 @@ xcodebuild -project LifeTV.xcodeproj -scheme 'LifeTV Run' \
 ## 目录
 
 ```text
-LifeTV/Core/       完美世界签名与客户端、原生模型、BBC 与账号、缓存和关注
-LifeTV/Features/   赛场、赛事、数据、详情、BBC 阅读与个人资料库
-LifeTV/UI/         可切换的主题设计系统、比分卡片和导航
-LifeTV/Resources/  图标、矢量标志、启动画面与隐私清单
-LifeTVTests/       单元测试与公开响应夹具
-LifeTVUITests/     导航和表单交互测试
+RedTV/Core/       完美世界签名与客户端、原生模型、BBC 与账号、缓存和关注
+RedTV/Features/   赛场、赛事、数据、详情、BBC 阅读与个人资料库
+RedTV/UI/         可切换的主题设计系统、比分卡片和导航
+RedTV/Resources/  图标、矢量标志、启动画面与隐私清单
+RedTVTests/       单元测试与公开响应夹具
+RedTVUITests/     导航和表单交互测试
 Scripts/          品牌生成器和公开接口复核脚本
 Branding/         可编辑标识与预览图
 ```

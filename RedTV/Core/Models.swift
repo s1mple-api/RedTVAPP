@@ -67,7 +67,7 @@ struct User: Codable, Identifiable {
 }
 struct UserResponse: Codable { let user: User? }
 struct Acknowledgement: Codable { var ok: Bool?; var counted: Bool? }
-enum LifeDate {
+enum RedDate {
     static var utcCalendar: Calendar {
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!

@@ -60,7 +60,7 @@ final class WanmeiClient {
         request.setValue("https://data.wanmei.com", forHTTPHeaderField: "Origin")
         request.setValue("https://data.wanmei.com/csgo", forHTTPHeaderField: "Referer")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("LifeTV-iOS/2.0", forHTTPHeaderField: "User-Agent")
+        request.setValue("RedTV-iOS/2.0", forHTTPHeaderField: "User-Agent")
         return request
     }
     private struct Cache: Codable { let date: Date; let body: ArenaJSON }

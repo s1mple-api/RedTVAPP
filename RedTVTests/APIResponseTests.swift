@@ -1,11 +1,11 @@
 import XCTest
-@testable import LifeTV
+@testable import RedTV
 
 final class APIResponseTests: XCTestCase {
     private func client() -> APIClient {
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [FixtureProtocol.self]
-        return APIClient(configuration: ServerConfiguration(apiURL: "https://fixture.lifetv.test", websiteURL: "https://fixture.lifetv.test"), session: URLSession(configuration: config))
+        return APIClient(configuration: ServerConfiguration(apiURL: "https://fixture.redtv.test", websiteURL: "https://fixture.redtv.test"), session: URLSession(configuration: config))
     }
 
     func testTopLevelGoNullSliceBecomesEmptyList() async throws {

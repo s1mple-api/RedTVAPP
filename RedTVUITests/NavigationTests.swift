@@ -5,7 +5,7 @@ final class NavigationTests: XCTestCase {
     func testCompletedMatchShowsContinuousMapFlow() throws {
         let app = XCUIApplication()
         app.launch()
-        app.open(URL(string: "lifetv://wanmei/matches/2399855")!)
+        app.open(URL(string: "redtv://wanmei/matches/2399855")!)
         XCTAssertTrue(app.navigationBars["比赛详情"].waitForExistence(timeout: 10))
         let heading = app.descendants(matching: .any).matching(identifier: "match-veto-section").firstMatch
         guard heading.waitForExistence(timeout: 15) else {

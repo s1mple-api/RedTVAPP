@@ -15,7 +15,7 @@ struct ArticleView: View {
                     Eyebrow(text: sourceName(article.source) + " / Red TV READ")
                     Text(original ? (article.title.isEmpty ? "BBC 英文原文" : article.title) : article.displayTitle)
                         .font(.system(.largeTitle, weight: .bold)).lineSpacing(5).textSelection(.enabled)
-                    Text("\(sourceName(article.source)) · \(LifeDate.display(article.publishedAt, time: true))").font(.caption).foregroundStyle(.secondary)
+                    Text("\(sourceName(article.source)) · \(RedDate.display(article.publishedAt, time: true))").font(.caption).foregroundStyle(.secondary)
                     ReadingActions(item: article.libraryItem)
                     ViewThatFits(in: .horizontal) {
                         HStack(spacing: 10) { languageButton; textSizeButton }
@@ -54,8 +54,8 @@ struct ArticleView: View {
                         ForEach(articles) { article in NavigationLink(value: Route.article(article.id)) { ArticleCard(article: article) }.buttonStyle(.plain) }
                     }
                 }
-            }.padding(22).lifePage()
-        }.background(LifeTheme.paper).navigationTitle("阅读").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation()
+            }.padding(22).redPage()
+        }.background(RedTheme.paper).navigationTitle("阅读").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
             .task(id: id) {
                 await load()
                 guard let article = resource.value else { return }

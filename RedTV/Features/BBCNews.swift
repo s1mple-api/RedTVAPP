@@ -22,8 +22,8 @@ struct BBCNewsView: View {
                 else if articles.isEmpty { EmptyState(title: "暂时没有新闻", message: "下拉刷新，或尝试其他分类。", icon: "newspaper") }
                 ForEach(Array(articles.enumerated()), id: \.element.id) { index, article in NavigationLink(value: Route.article(article.id)) { ArticleCard(article: article, featured: index == 0) }.buttonStyle(.plain) }
                 Text("新闻由 Red TV 服务同步。中文内容为自动翻译，详情可切换原文并访问 BBC 来源。").font(.caption2).foregroundStyle(.secondary).lineSpacing(4)
-            }.padding(.horizontal, 20).padding(.top, 4).padding(.bottom, 24).lifePage()
-        }.lifeTabPage("新闻", subtitle: "赛场之外，看见世界。", key: "news", isRoot: !embedded).refreshable { await store.refreshDashboard() }
+            }.padding(.horizontal, 20).padding(.top, 4).padding(.bottom, 24).redPage()
+        }.redTabPage("新闻", subtitle: "赛场之外，看见世界。", key: "news", isRoot: !embedded).refreshable { await store.refreshDashboard() }
     }
 }
 
@@ -36,9 +36,9 @@ struct ArticleCard: View {
             if featured, let imageURL { BBCArticleImage(url: imageURL).frame(height: 190) }
             HStack(alignment: .firstTextBaseline, spacing: 8) {
                 Text("BBC" + (article.sectionLabel.flatMap { $0.isEmpty ? nil : " · \($0)" } ?? ""))
-                    .font(.caption2.bold()).foregroundStyle(LifeTheme.red).lineLimit(1)
+                    .font(.caption2.bold()).foregroundStyle(RedTheme.red).lineLimit(1)
                 Spacer(minLength: 4)
-                Text(LifeDate.display(article.publishedAt)).font(.caption2).foregroundStyle(.secondary).fixedSize()
+                Text(RedDate.display(article.publishedAt)).font(.caption2).foregroundStyle(.secondary).fixedSize()
             }
             HStack(alignment: .top, spacing: 12) {
                 VStack(alignment: .leading, spacing: 8) {
@@ -55,7 +55,7 @@ struct ArticleCard: View {
                 }
             }
         }.padding(14).frame(maxWidth: .infinity, alignment: .leading)
-            .foregroundStyle(.primary).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 16))
+            .foregroundStyle(.primary).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 16))
             .accessibilityElement(children: .combine)
     }
 }
@@ -70,8 +70,8 @@ struct BBCArticleImage: View {
                 if let image = phase.image { image.resizable().scaledToFill() }
                 else {
                     ZStack {
-                        LifeTheme.rose
-                        Image(systemName: "photo").font(.title3).foregroundStyle(LifeTheme.red.opacity(0.6))
+                        RedTheme.rose
+                        Image(systemName: "photo").font(.title3).foregroundStyle(RedTheme.red.opacity(0.6))
                     }
                 }
             }.frame(width: geometry.size.width, height: geometry.size.height).clipped()
@@ -100,7 +100,7 @@ struct ArenaSearchView: View {
                 if !players.isEmpty { Section("选手") { ForEach(players) { player in NavigationLink(value: Route.arenaPlayer(player.id)) { ArenaPlayerRow(player: player) } } } }
                 if !articles.isEmpty { Section("BBC 新闻") { ForEach(articles) { article in NavigationLink(article.displayTitle, value: Route.article(article.id)) } } }
             }
-        }.scrollContentBackground(.hidden).background(LifeTheme.paper).navigationTitle("搜索").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation()
+        }.scrollContentBackground(.hidden).background(RedTheme.paper).navigationTitle("搜索").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
             .searchable(text: $query, prompt: "赛事、战队、选手、BBC")
     }
 }
@@ -112,6 +112,6 @@ struct LegacyResourceView: View {
         VStack(spacing: 20) {
             EmptyState(title: "这条收藏来自旧版应用", message: "Red TV 现已专注 CS2 赛事与 BBC 新闻。旧收藏仍可保留或在资料库中移除。", icon: "archivebox")
             if let url = store.configuration.shareURL(path: path) { Link("前往原网站查看", destination: url).buttonStyle(.bordered) }
-        }.padding(24).frame(maxHeight: .infinity).background(LifeTheme.paper).navigationTitle("旧版收藏").lifeDetailNavigation()
+        }.padding(24).frame(maxHeight: .infinity).background(RedTheme.paper).navigationTitle("旧版收藏").redDetailNavigation()
     }
 }

@@ -27,7 +27,7 @@ struct RootView: View {
         }
         .onOpenURL { url in
             let path: String
-            if url.scheme == "lifetv" { path = "/" + (url.host ?? "") + url.path }
+            if url.scheme == "redtv" { path = "/" + (url.host ?? "") + url.path }
             else if url.host == "data.wanmei.com" {
                 let p = url.path.split(separator: "/").map(String.init)
                 if p.count == 3, p[1] == "match" { path = "/wanmei/matches/" + p[2] }

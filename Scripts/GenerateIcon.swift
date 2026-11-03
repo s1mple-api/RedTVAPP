@@ -6,7 +6,7 @@ import ImageIO
 // Run from the project root: swift Scripts/GenerateIcon.swift
 enum AssetError: Error { case bitmapContext, image, pdfContext }
 let root = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-let assets = root.appendingPathComponent("LifeTV/Resources/Assets.xcassets")
+let assets = root.appendingPathComponent("RedTV/Resources/Assets.xcassets")
 let branding = root.appendingPathComponent("Branding")
 try FileManager.default.createDirectory(at: branding, withIntermediateDirectories: true)
 

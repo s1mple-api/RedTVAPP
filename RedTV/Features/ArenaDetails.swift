@@ -31,14 +31,14 @@ struct ArenaEventView: View {
                             }
                         } else {
                             if event.teams.isEmpty { EmptyState(title: "参赛阵容待公布", icon: "shield") }
-                            ForEach(event.teams) { team in NavigationLink(value: Route.arenaTeam(team.id)) { HStack { ArenaTeamAvatar(team: team); Text(team.name).font(.headline); Spacer(); Image(systemName: "chevron.right").font(.caption) }.padding(14).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 12)) }.buttonStyle(.plain) }
+                            ForEach(event.teams) { team in NavigationLink(value: Route.arenaTeam(team.id)) { HStack { ArenaTeamAvatar(team: team); Text(team.name).font(.headline); Spacer(); Image(systemName: "chevron.right").font(.caption) }.padding(14).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 12)) }.buttonStyle(.plain) }
                         }
                         ArenaStamp(date: result.fetchedAt, cached: result.cached)
                         SourceLink(raw: event.sourceURL.absoluteString, title: "在完美世界电竞查看赛事")
                     }
                 }
-            }.padding(18).lifePage()
-        }.background(LifeTheme.paper).navigationTitle("赛事详情").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation()
+            }.padding(18).redPage()
+        }.background(RedTheme.paper).navigationTitle("赛事详情").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
             .task(id: id) { if seed?.type == nil || seed?.type == 1 { await load() } }.refreshable { await load() }
     }
     private func eventHeader(_ event: ArenaEvent) -> some View {
@@ -74,13 +74,13 @@ struct ArenaTeamView: View {
                     DetailFacts(values: [("HLTV 排名", team.hltvRank.map { "#\($0)" } ?? "暂无排名"), ("HLTV 积分", team.hltvPoints.map { String(format: "%.0f", $0) } ?? "–"), ("Valve 排名", team.rank.map { "#\($0)" } ?? "暂无排名"), ("Valve 积分", team.points.map { String(format: "%.0f", $0) } ?? "–")])
                     SectionHeading(title: "当前阵容")
                     if team.players.isEmpty { EmptyState(title: "阵容暂未同步", icon: "person.3") }
-                    VStack(spacing: 0) { ForEach(team.players) { player in NavigationLink(value: Route.arenaPlayer(player.id)) { ArenaPlayerRow(player: player) }.buttonStyle(.plain); Divider() } }.padding(.horizontal, 14).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 14))
+                    VStack(spacing: 0) { ForEach(team.players) { player in NavigationLink(value: Route.arenaPlayer(player.id)) { ArenaPlayerRow(player: player) }.buttonStyle(.plain); Divider() } }.padding(.horizontal, 14).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 14))
                     Text("阵容内评分采用来源返回的生涯 Rating；与列表 Impact 指标口径不同。").font(.caption2).foregroundStyle(.secondary)
                     ArenaStamp(date: result.fetchedAt, cached: result.cached)
                     SourceLink(raw: "https://data.wanmei.com/csgo/teams/detail/\(id)", title: "查看战队完整数据")
                 }
-            }.padding(18).lifePage()
-        }.background(LifeTheme.paper).navigationTitle("战队").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation().task(id: id) { await load() }.refreshable { await load() }
+            }.padding(18).redPage()
+        }.background(RedTheme.paper).navigationTitle("战队").navigationBarTitleDisplayMode(.inline).redDetailNavigation().task(id: id) { await load() }.refreshable { await load() }
     }
     private func load() async { await resource.load(key: "\(id)") { try await arena.api.team(id) } }
 }

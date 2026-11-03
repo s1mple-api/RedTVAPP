@@ -1,5 +1,5 @@
 import XCTest
-@testable import LifeTV
+@testable import RedTV
 
 final class PlayerDetailsTests: XCTestCase {
     private func decode(_ string: String) throws -> ArenaJSON { try JSONDecoder().decode(ArenaJSON.self, from: Data(string.utf8)) }

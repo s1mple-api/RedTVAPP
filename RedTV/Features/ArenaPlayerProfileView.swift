@@ -23,8 +23,8 @@ struct ArenaPlayerProfileView: View {
                     ArenaStamp(date: result.fetchedAt, cached: result.cached)
                     SourceLink(raw: "https://data.wanmei.com/csgo/players/\(id)", title: "在完美世界电竞查看选手")
                 }
-            }.padding(20).lifePage()
-        }.background(LifeTheme.paper).navigationTitle("选手").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation()
+            }.padding(20).redPage()
+        }.background(RedTheme.paper).navigationTitle("选手").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
             .task(id: id) { await load() }.refreshable { await load() }
             .onChange(of: recentPage) { _, _ in Task { await loadRecent() } }
     }
@@ -51,17 +51,17 @@ struct ArenaPlayerProfileView: View {
         VStack(spacing: 10) {
             ArenaPlayerRadar(dimensions: details.dimensions).frame(height: 310)
             Text("能力以 0–100 刻度展示。Rating 轴采用来源位置值，原始 Rating 另列于下方。").font(.caption2).foregroundStyle(.secondary).lineSpacing(4)
-        }.padding(14).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 18))
+        }.padding(14).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 18))
         if details.dimensions.contains(where: { $0.value == nil }) { Notice(text: "部分能力数据暂未公布。") }
         if !details.profile.rating.isEmpty {
             HStack(alignment: .firstTextBaseline) {
-                Text(details.profile.rating).font(.system(size: 48, weight: .black, design: .rounded)).foregroundStyle(LifeTheme.positive)
+                Text(details.profile.rating).font(.system(size: 48, weight: .black, design: .rounded)).foregroundStyle(RedTheme.positive)
                 Spacer()
                 VStack(alignment: .trailing, spacing: 5) {
                     Text(details.profile.ratingLabel.isEmpty ? "来源 Rating" : details.profile.ratingLabel).font(.headline)
                     if let maps = details.mapCount { Text("当前统计 \(maps) 张地图").font(.caption).foregroundStyle(.secondary) }
                 }
-            }.padding(18).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 16))
+            }.padding(18).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 16))
         }
         DetailFacts(values: details.sideRatings + details.profile.metrics)
         SectionHeading(title: "基础资料")
@@ -77,8 +77,8 @@ struct ArenaPlayerProfileView: View {
                     ForEach(details.top20) { entry in
                         VStack(alignment: .leading, spacing: 7) {
                             Text(String(entry.year)).font(.caption).foregroundStyle(.secondary)
-                            Text("#\(entry.rank)").font(.system(size: 30, weight: .black, design: .rounded)).foregroundStyle(LifeTheme.red)
-                        }.padding(16).frame(width: 110, alignment: .leading).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 14))
+                            Text("#\(entry.rank)").font(.system(size: 30, weight: .black, design: .rounded)).foregroundStyle(RedTheme.red)
+                        }.padding(16).frame(width: 110, alignment: .leading).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 14))
                     }
                 }
             }
@@ -104,7 +104,7 @@ struct ArenaPlayerProfileView: View {
     }
     private func matchRecord(_ record: ArenaPlayerMatchRecord) -> some View {
         VStack(alignment: .leading, spacing: 7) {
-            HStack { Text(ArenaDate.format(record.match.start, pattern: "yyyy.MM.dd HH:mm")).font(.caption2).foregroundStyle(.secondary); Spacer(); if let rating = record.rating { Text("Rating \(String(format: "%.2f", rating))").font(.caption2.bold()).foregroundStyle(LifeTheme.positive) } }
+            HStack { Text(ArenaDate.format(record.match.start, pattern: "yyyy.MM.dd HH:mm")).font(.caption2).foregroundStyle(.secondary); Spacer(); if let rating = record.rating { Text("Rating \(String(format: "%.2f", rating))").font(.caption2.bold()).foregroundStyle(RedTheme.positive) } }
             ArenaCompactMatchCard(match: record.match)
         }
     }
@@ -125,7 +125,7 @@ struct ArenaPlayerProfileView: View {
                         if let date = honor.date { Text(ArenaDate.format(date, pattern: "yyyy.MM.dd")).font(.caption2).foregroundStyle(.secondary) }
                         if let event = honor.eventID, event > 0 { NavigationLink("赛事详情", value: Route.arenaEvent(event)).font(.caption) }
                     }
-                }.padding(14).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 14))
+                }.padding(14).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 14))
             }
             ArenaStamp(date: result.fetchedAt, cached: result.cached)
         }
@@ -156,13 +156,13 @@ private struct ArenaPlayerRadar: View {
                     Path { path in path.move(to: center); path.addLine(to: point(index, center: center, radius: radius)) }.stroke(.primary.opacity(0.10), lineWidth: 1)
                     VStack(spacing: 3) {
                         Text(dimension.name).font(.system(size: 10)).foregroundStyle(.secondary)
-                        Text(dimension.value.map { String(format: "%.0f", $0) } ?? "–").font(.system(size: 12, weight: .bold, design: .rounded)).foregroundStyle(LifeTheme.red)
+                        Text(dimension.value.map { String(format: "%.0f", $0) } ?? "–").font(.system(size: 12, weight: .bold, design: .rounded)).foregroundStyle(RedTheme.red)
                     }.frame(width: 68).position(point(index, center: center, radius: radius + 31))
                 }
                 if dimensions.allSatisfy({ $0.value != nil }) {
                     let shape = polygon(center: center, radius: radius, values: dimensions.map { ($0.value ?? 0) / 100 })
-                    shape.fill(LifeTheme.red.opacity(0.15))
-                    shape.stroke(LifeTheme.red, lineWidth: 2)
+                    shape.fill(RedTheme.red.opacity(0.15))
+                    shape.stroke(RedTheme.red, lineWidth: 2)
                 }
             }
         }.accessibilityElement(children: .ignore).accessibilityLabel("八维概览，7 项角色能力和 Rating 指标。" + dimensions.map { "\($0.name) \($0.value.map { String(format: "%.0f", $0) } ?? "暂无数据")" }.joined(separator: "，"))

@@ -1,5 +1,5 @@
 import XCTest
-@testable import LifeTV
+@testable import RedTV
 
 final class CoreTests: XCTestCase {
     func testGoNullSlicesDoNotBreakDashboard() throws {
@@ -42,7 +42,7 @@ final class CoreTests: XCTestCase {
         let write = try client.makeRequest("auth/login", body: Data("{}".utf8), post: true)
         XCTAssertEqual(write.httpMethod, "POST")
         XCTAssertEqual(write.value(forHTTPHeaderField: "Origin"), "https://www.example.com")
-        XCTAssertEqual(write.value(forHTTPHeaderField: "X-Life-Request"), "1")
+        XCTAssertEqual(write.value(forHTTPHeaderField: "X-Red-Request"), "1")
         XCTAssertEqual(write.httpBody, Data("{}".utf8))
     }
 
@@ -50,7 +50,7 @@ final class CoreTests: XCTestCase {
         for url in ["file:///etc/passwd", "https://name:secret@example.com", "https://example.com?token=secret", "https://example.com/#part", "invalid"] {
             XCTAssertNil(ServerConfiguration.validURL(url), url)
         }
-        XCTAssertNotNil(ServerConfiguration.validURL("https://lifetv.icu"))
+        XCTAssertNotNil(ServerConfiguration.validURL("https://redtv.icu"))
     }
 
     func testRoutesPreserveWebResourceIdentity() {
@@ -64,6 +64,6 @@ final class CoreTests: XCTestCase {
     }
 
     func testNewsDateAcceptsFractionalSeconds() {
-        XCTAssertNotNil(LifeDate.parse("2026-11-01T00:00:00.123456789Z"))
+        XCTAssertNotNil(RedDate.parse("2026-11-01T00:00:00.123456789Z"))
     }
 }

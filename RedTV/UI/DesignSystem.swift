@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum LifeTheme {
+enum RedTheme {
     static let red = Color(red: 1, green: 0.141, blue: 0.259)
     static let paper = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(red: 0.043, green: 0.063, blue: 0.086, alpha: 1) : UIColor(red: 0.965, green: 0.969, blue: 0.976, alpha: 1) })
     static let rose = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(red: 0.21, green: 0.08, blue: 0.11, alpha: 1) : UIColor(red: 1, green: 0.925, blue: 0.94, alpha: 1) })
@@ -12,7 +12,7 @@ enum LifeTheme {
 struct Wordmark: View {
     var size: CGFloat = 25
     var body: some View {
-        (Text("Red").foregroundColor(.primary) + Text(" TV").foregroundColor(LifeTheme.red))
+        (Text("Red").foregroundColor(.primary) + Text(" TV").foregroundColor(RedTheme.red))
             .font(.system(size: size, weight: .black, design: .rounded)).tracking(-1.2)
             .accessibilityLabel("Red TV")
     }
@@ -30,7 +30,7 @@ struct Eyebrow: View {
     let text: String
     var body: some View {
         Text(text.uppercased()).font(.system(.caption2, design: .monospaced, weight: .medium))
-            .tracking(2).foregroundStyle(LifeTheme.red)
+            .tracking(2).foregroundStyle(RedTheme.red)
     }
 }
 
@@ -51,7 +51,7 @@ struct Notice: View {
     var body: some View {
         Label { Text(text).font(.caption).lineSpacing(4).fixedSize(horizontal: false, vertical: true) } icon: { Image(systemName: icon) }
             .foregroundStyle(.secondary).padding(14).frame(maxWidth: .infinity, alignment: .leading)
-            .background(LifeTheme.rose, in: RoundedRectangle(cornerRadius: 12))
+            .background(RedTheme.rose, in: RoundedRectangle(cornerRadius: 12))
     }
 }
 
@@ -71,8 +71,8 @@ struct ErrorNotice: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Label(message, systemImage: "wifi.exclamationmark").font(.subheadline).fixedSize(horizontal: false, vertical: true)
-            Button("重新加载", action: retry).buttonStyle(.bordered).tint(LifeTheme.red)
-        }.padding(18).frame(maxWidth: .infinity, alignment: .leading).background(LifeTheme.rose, in: RoundedRectangle(cornerRadius: 14))
+            Button("重新加载", action: retry).buttonStyle(.bordered).tint(RedTheme.red)
+        }.padding(18).frame(maxWidth: .infinity, alignment: .leading).background(RedTheme.rose, in: RoundedRectangle(cornerRadius: 14))
     }
 }
 
@@ -101,11 +101,11 @@ struct RemoteImage: View {
             if let image = phase.image { image.resizable().scaledToFill() }
             else {
                 ZStack {
-                    LifeTheme.rose
+                    RedTheme.rose
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Red").font(.system(size: height > 100 ? 42 : 21, weight: .black, design: .rounded)).tracking(-2)
                         Text(label.uppercased()).font(.system(.caption2, design: .monospaced)).tracking(2)
-                    }.foregroundStyle(LifeTheme.red)
+                    }.foregroundStyle(RedTheme.red)
                 }
             }
         }.frame(height: height).frame(maxWidth: .infinity).clipped().clipShape(RoundedRectangle(cornerRadius: 12))
@@ -141,7 +141,7 @@ struct ReadingActions: View {
             if let url = store.configuration.shareURL(path: item.path) {
                 ShareLink(item: url) { Label("分享", systemImage: "square.and.arrow.up") }.buttonStyle(.bordered)
             }
-        }.font(.subheadline).tint(LifeTheme.red)
+        }.font(.subheadline).tint(RedTheme.red)
     }
 }
 
@@ -172,7 +172,7 @@ struct FilterChips: View {
                     Button { selection = value.0 } label: {
                         Text(value.1).font(.subheadline.weight(selection == value.0 ? .semibold : .regular))
                             .padding(.horizontal, 14).frame(minHeight: 40)
-                            .background(selection == value.0 ? LifeTheme.red : LifeTheme.card, in: Capsule())
+                            .background(selection == value.0 ? RedTheme.red : RedTheme.card, in: Capsule())
                             .foregroundStyle(selection == value.0 ? Color.white : Color.primary)
                     }.buttonStyle(.plain)
                 }
@@ -182,8 +182,8 @@ struct FilterChips: View {
 }
 
 extension View {
-    func lifePage() -> some View {
-        self.frame(maxWidth: 760).frame(maxWidth: .infinity).background(LifeTheme.paper)
+    func redPage() -> some View {
+        self.frame(maxWidth: 760).frame(maxWidth: .infinity).background(RedTheme.paper)
     }
     func lifeToolbar() -> some View {
         self.toolbar {

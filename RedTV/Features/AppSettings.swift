@@ -16,6 +16,6 @@ struct AppSettingsView: View {
                 LabeledContent("赛事来源", value: "完美世界电竞")
             }
             Section { NavigationLink(value: Route.about) { Label("关于 Red TV", systemImage: "info.circle") } }
-        }.scrollContentBackground(.hidden).background(LifeTheme.paper).navigationTitle("设置").navigationBarTitleDisplayMode(.inline).lifeDetailNavigation()
+        }.scrollContentBackground(.hidden).background(RedTheme.paper).navigationTitle("设置").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
     }
 }

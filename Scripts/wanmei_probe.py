@@ -32,7 +32,7 @@ def canonical(parameters, timestamp, nonce):
 
 
 def public_key():
-    local = Path("/private/tmp/lifetv-wanmei.js")
+    local = Path("/private/tmp/redtv-wanmei.js")
     source = local.read_text() if local.is_file() else ""
     if not source:
         html = urllib.request.urlopen(SITE + "/csgo", timeout=20).read().decode()
@@ -50,7 +50,7 @@ def request(path, parameters, key, output):
     req = urllib.request.Request(API + path + ("?" + query if query else ""), headers={
         "X-Timestamp": timestamp, "X-Nonce": nonce, "X-Signature": signature,
         "Origin": SITE, "Referer": SITE + "/csgo", "Accept": "application/json",
-        "User-Agent": "LifeTV-iOS-Integration/2.0",
+        "User-Agent": "RedTV-iOS-Integration/2.0",
     })
     with urllib.request.urlopen(req, timeout=25) as response:
         value = json.load(response)

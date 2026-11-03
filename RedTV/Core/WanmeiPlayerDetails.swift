@@ -126,7 +126,7 @@ struct ArenaPlayerMatches {
         self.page = page; hasMore = !upcoming && rows.count >= pageSize
     }
     static func matchDate(_ value: String) -> Date? {
-        if let date = LifeDate.parse(value) { return date }
+        if let date = RedDate.parse(value) { return date }
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX"); formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return formatter.date(from: value)

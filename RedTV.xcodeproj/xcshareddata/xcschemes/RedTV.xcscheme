@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A00000000000000000000010"
-               BuildableName = "LifeTV.app"
-               BlueprintName = "LifeTV"
-               ReferencedContainer = "container:LifeTV.xcodeproj">
+               BuildableName = "RedTV.app"
+               BlueprintName = "RedTV"
+               ReferencedContainer = "container:RedTV.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A00000000000000000000011"
-               BuildableName = "LifeTVTests.xctest"
-               BlueprintName = "LifeTVTests"
-               ReferencedContainer = "container:LifeTV.xcodeproj">
+               BuildableName = "RedTVTests.xctest"
+               BlueprintName = "RedTVTests"
+               ReferencedContainer = "container:RedTV.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A00000000000000000000012"
-               BuildableName = "LifeTVUITests.xctest"
-               BlueprintName = "LifeTVUITests"
-               ReferencedContainer = "container:LifeTV.xcodeproj">
+               BuildableName = "RedTVUITests.xctest"
+               BlueprintName = "RedTVUITests"
+               ReferencedContainer = "container:RedTV.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A00000000000000000000010"
-            BuildableName = "LifeTV.app"
-            BlueprintName = "LifeTV"
-            ReferencedContainer = "container:LifeTV.xcodeproj">
+            BuildableName = "RedTV.app"
+            BlueprintName = "RedTV"
+            ReferencedContainer = "container:RedTV.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -82,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A00000000000000000000010"
-            BuildableName = "LifeTV.app"
-            BlueprintName = "LifeTV"
-            ReferencedContainer = "container:LifeTV.xcodeproj">
+            BuildableName = "RedTV.app"
+            BlueprintName = "RedTV"
+            ReferencedContainer = "container:RedTV.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

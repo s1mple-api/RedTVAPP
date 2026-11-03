@@ -39,7 +39,7 @@ struct ArenaStamp: View {
         HStack(spacing: 5) {
             Image(systemName: cached ? "clock.arrow.circlepath" : "arrow.triangle.2.circlepath")
             Text(cached ? "离线缓存 · \(ArenaDate.format(date))" : "完美世界电竞 · \(ArenaDate.format(date, pattern: "HH:mm")) 更新")
-        }.font(.caption2).foregroundStyle(cached ? LifeTheme.red : Color.secondary)
+        }.font(.caption2).foregroundStyle(cached ? RedTheme.red : Color.secondary)
         if cached { Notice(text: "当前连接未能更新，展示最近一次成功读取的数据；比分可能已变化。") }
     }
 }
@@ -56,12 +56,12 @@ struct ArenaBadge: View {
     var live = false
     var body: some View {
         HStack(spacing: 5) {
-            if live { Circle().fill(LifeTheme.live).frame(width: 5, height: 5) }
+            if live { Circle().fill(RedTheme.live).frame(width: 5, height: 5) }
             Text(text)
         }.font(.system(size: 10, weight: .bold, design: .monospaced))
-            .foregroundStyle(live ? LifeTheme.live : LifeTheme.red)
+            .foregroundStyle(live ? RedTheme.live : RedTheme.red)
             .padding(.horizontal, 7).padding(.vertical, 5)
-            .background((live ? LifeTheme.live : LifeTheme.red).opacity(0.1), in: RoundedRectangle(cornerRadius: 5))
+            .background((live ? RedTheme.live : RedTheme.red).opacity(0.1), in: RoundedRectangle(cornerRadius: 5))
     }
 }
 
@@ -75,7 +75,7 @@ struct ArenaMatchCard: View {
                     Text(ArenaDate.format(match.start, pattern: "HH:mm")).font(.caption.monospacedDigit()).foregroundStyle(.secondary)
                     Spacer()
                     Text(match.bestOf).font(.caption2.monospaced()).foregroundStyle(.secondary)
-                    if match.stars > 0 { Label("\(match.stars)", systemImage: "star.fill").font(.system(size: 10)).foregroundStyle(LifeTheme.red) }
+                    if match.stars > 0 { Label("\(match.stars)", systemImage: "star.fill").font(.system(size: 10)).foregroundStyle(RedTheme.red) }
                 }
                 HStack(spacing: 12) {
                     VStack(spacing: 9) { ArenaTeamAvatar(team: match.team1, size: 40); Text(match.team1.name.isEmpty ? "待定" : match.team1.name).font(.subheadline.bold()).lineLimit(1) }.frame(maxWidth: .infinity)
@@ -92,8 +92,8 @@ struct ArenaMatchCard: View {
                     Spacer(minLength: 0)
                     Image(systemName: "chevron.right").font(.system(size: 9, weight: .bold))
                 }.font(.caption2).foregroundStyle(.secondary)
-            }.padding(16).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 16))
-                .overlay(alignment: .leading) { if match.status == 1 { RoundedRectangle(cornerRadius: 2).fill(LifeTheme.live).frame(width: 3, height: 36) } }
+            }.padding(16).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 16))
+                .overlay(alignment: .leading) { if match.status == 1 { RoundedRectangle(cornerRadius: 2).fill(RedTheme.live).frame(width: 3, height: 36) } }
         }.buttonStyle(.plain).accessibilityIdentifier("match-\(match.id)")
     }
 }
@@ -107,9 +107,9 @@ struct ArenaEventCard: View {
                 HStack { ArenaBadge(text: event.stateLabel, live: event.status == 1); Spacer(); Text(event.tier).font(.caption2.monospaced()).foregroundStyle(.secondary) }
                 Text(event.name).font(.headline).lineLimit(2)
                 Text(event.dateRange + (event.location.isEmpty ? "" : " · " + event.location)).font(.caption2).foregroundStyle(.secondary)
-                HStack { Text(event.prize.isEmpty ? "奖金待公布" : event.prize).font(.caption.weight(.semibold)).foregroundStyle(LifeTheme.red); Spacer(); Text("\(event.teamCount) 支战队").font(.caption2).foregroundStyle(.secondary) }
+                HStack { Text(event.prize.isEmpty ? "奖金待公布" : event.prize).font(.caption.weight(.semibold)).foregroundStyle(RedTheme.red); Spacer(); Text("\(event.teamCount) 支战队").font(.caption2).foregroundStyle(.secondary) }
             }
-        }.padding(16).background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 16))
+        }.padding(16).background(RedTheme.card, in: RoundedRectangle(cornerRadius: 16))
     }
 }
 
@@ -117,7 +117,7 @@ struct ArenaTeamRow: View {
     let team: ArenaTeam
     var body: some View {
         HStack(spacing: 14) {
-            Text(team.rank.map { String(format: "%02d", $0) } ?? "–").font(.system(.title3, design: .monospaced, weight: .bold)).foregroundStyle((team.rank ?? 99) <= 3 ? LifeTheme.red : Color.secondary).frame(width: 30)
+            Text(team.rank.map { String(format: "%02d", $0) } ?? "–").font(.system(.title3, design: .monospaced, weight: .bold)).foregroundStyle((team.rank ?? 99) <= 3 ? RedTheme.red : Color.secondary).frame(width: 30)
             ArenaTeamAvatar(team: team)
             VStack(alignment: .leading, spacing: 5) { Text(team.name).font(.headline); Text(team.players.prefix(5).map(\.name).joined(separator: " · ")).font(.system(size: 10)).foregroundStyle(.secondary).lineLimit(1) }
             Spacer(minLength: 0)
@@ -136,10 +136,10 @@ struct ArenaPlayerRow: View {
         HStack(spacing: 13) {
             if let index { Text(String(format: "%02d", index)).font(.caption.monospacedDigit()).foregroundStyle(.secondary).frame(width: 24) }
             ArenaAvatar(url: portrait ?? player.image, size: 54, player: true)
-                .background(LifeTheme.paper, in: RoundedRectangle(cornerRadius: 9))
+                .background(RedTheme.paper, in: RoundedRectangle(cornerRadius: 9))
             VStack(alignment: .leading, spacing: 5) { Text(player.name).font(.headline); Text([player.teamName, player.country, player.coach ? "教练" : ""].filter { !$0.isEmpty }.joined(separator: " · ")).font(.caption2).foregroundStyle(.secondary) }
             Spacer()
-            if let rating = player.rating { Text(rating.formatted(.number.precision(.fractionLength(2)))).font(.title3.monospacedDigit().bold()).foregroundStyle(LifeTheme.positive) }
+            if let rating = player.rating { Text(rating.formatted(.number.precision(.fractionLength(2)))).font(.title3.monospacedDigit().bold()).foregroundStyle(RedTheme.positive) }
             Image(systemName: "chevron.right").font(.caption2).foregroundStyle(.tertiary)
         }.padding(.vertical, 10).task(id: player.id) { portrait = await arena.portrait(for: player) }
     }
@@ -173,7 +173,7 @@ struct ArenaFollowButton: View {
     var body: some View {
         Button { arena.toggle(kind: kind, id: id, title: title, subtitle: subtitle, image: image) } label: {
             Label(arena.isFollowed(kind, id) ? "已关注" : "关注", systemImage: arena.isFollowed(kind, id) ? "star.fill" : "star")
-        }.buttonStyle(.bordered).font(.subheadline).tint(LifeTheme.red)
+        }.buttonStyle(.bordered).font(.subheadline).tint(RedTheme.red)
     }
 }
 
@@ -185,6 +185,6 @@ struct DetailFacts: View {
                 HStack(alignment: .top) { Text(pair.0).foregroundStyle(.secondary); Spacer(); Text(pair.1.isEmpty ? "待公布" : pair.1).multilineTextAlignment(.trailing) }.font(.subheadline).padding(14)
                 if index < values.count - 1 { Divider().padding(.horizontal, 14) }
             }
-        }.background(LifeTheme.card, in: RoundedRectangle(cornerRadius: 14))
+        }.background(RedTheme.card, in: RoundedRectangle(cornerRadius: 14))
     }
 }
