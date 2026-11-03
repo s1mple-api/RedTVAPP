@@ -9,6 +9,20 @@ enum ArenaMapIdentity: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
     var assetName: String { "ArenaMap_" + rawValue }
+    var nameEn: String {
+        switch self {
+        case .cache: "Cache"
+        case .dust2: "Dust II"
+        case .mirage: "Mirage"
+        case .inferno: "Inferno"
+        case .nuke: "Nuke"
+        case .train: "Train"
+        case .overpass: "Overpass"
+        case .vertigo: "Vertigo"
+        case .ancient: "Ancient"
+        case .anubis: "Anubis"
+        }
+    }
     var displayName: String {
         switch self {
         case .cache: "死城之谜"

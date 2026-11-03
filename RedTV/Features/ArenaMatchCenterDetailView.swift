@@ -24,8 +24,7 @@ struct ArenaMatchCenterDetailView: View {
                     postMatch(result.value)
                     sectionDivider
                     mapAnalysis(result.value)
-                    ArenaStamp(date: result.fetchedAt, cached: result.cached)
-                    SourceLink(raw: result.value.match.sourceURL.absoluteString, title: "在完美世界电竞查看比赛")
+                    MatchFooterMetaCard(date: result.fetchedAt, cached: result.cached, sourceURL: result.value.match.sourceURL)
                 }
             }.padding(20).redPage()
         }.background(RedTheme.paper).navigationTitle("比赛详情").navigationBarTitleDisplayMode(.inline).redDetailNavigation()
@@ -166,7 +165,6 @@ struct ArenaMatchCenterDetailView: View {
         ResourceContent(resource: analysis, retry: { Task { await loadAnalysis(detail) } }) { result in
             if result.value.rows.isEmpty { Notice(text: "暂无这两支战队的地图分析数据。") }
             ForEach(result.value.rows) { row in MatchMapAnalysisCard(row: row) }
-            ArenaStamp(date: result.fetchedAt, cached: result.cached)
         }
     }
 
@@ -198,46 +196,212 @@ private struct MatchDetailSectionHeading: View {
     }
 }
 
+private struct MatchFooterMetaCard: View {
+    let date: Date
+    let cached: Bool
+    let sourceURL: URL?
+
+    var body: some View {
+        VStack(spacing: 8) {
+            HStack(alignment: .center, spacing: 8) {
+                // 更新时间指示与同步状态
+                HStack(spacing: 5) {
+                    Image(systemName: cached ? "clock.arrow.circlepath" : "arrow.triangle.2.circlepath")
+                        .font(.system(size: 11, weight: .semibold))
+                    Text(cached ? "离线缓存 · \(ArenaDate.format(date))" : "完美世界电竞 · \(ArenaDate.format(date, pattern: "HH:mm")) 更新")
+                        .font(.caption2.weight(.medium))
+                }
+                .foregroundStyle(cached ? RedTheme.red : Color.secondary)
+
+                Spacer(minLength: 8)
+
+                // 整合跳转外部来源链接
+                if let sourceURL {
+                    Link(destination: sourceURL) {
+                        HStack(spacing: 4) {
+                            Text("在完美世界电竞查看")
+                                .font(.caption2.weight(.bold))
+                            Image(systemName: "arrow.up.right")
+                                .font(.system(size: 9, weight: .heavy))
+                        }
+                        .foregroundStyle(RedTheme.red)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(RedTheme.rose, in: Capsule())
+                        .overlay {
+                            Capsule().strokeBorder(RedTheme.red.opacity(0.18), lineWidth: 0.8)
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 10)
+            .background(RedTheme.card, in: RoundedRectangle(cornerRadius: 13))
+            .overlay {
+                RoundedRectangle(cornerRadius: 13).strokeBorder(Color.primary.opacity(0.04), lineWidth: 1)
+            }
+
+            if cached {
+                Notice(text: "当前连接未能更新，展示最近一次成功读取的数据；比分可能已变化。")
+            }
+        }
+        .padding(.top, 4)
+    }
+}
+
 private struct MatchVetoFlowStep: View {
     let veto: ArenaMapVeto
     let number: Int
     let isLast: Bool
-    private var accent: Color { veto.type == 1 ? .secondary : RedTheme.red }
-    private var actionIcon: String { veto.type == 1 ? "minus.circle.fill" : veto.type == 2 ? "checkmark.circle.fill" : "flag.checkered" }
+
+    private var accent: Color {
+        switch veto.type {
+        case 1: return Color.secondary
+        case 2: return RedTheme.red
+        case 3: return Color(red: 0.95, green: 0.55, blue: 0.1)
+        default: return .secondary
+        }
+    }
+
+    private var actionIcon: String {
+        switch veto.type {
+        case 1: return "minus.circle.fill"
+        case 2: return "checkmark.circle.fill"
+        case 3: return "flag.checkered"
+        default: return "questionmark.circle"
+        }
+    }
+
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            Text(String(format: "%02d", number)).font(.system(size: 11, weight: .bold, design: .monospaced))
-                .foregroundStyle(accent).frame(width: 28, height: 28)
+            timelineStep
+            cardContent
+        }
+        .padding(.bottom, isLast ? 0 : 8)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("第 \(number) 步，\(veto.teamName.isEmpty ? "双方" : veto.teamName)，\(veto.action)，\(veto.name)")
+    }
+
+    private var timelineStep: some View {
+        VStack(spacing: 0) {
+            Text(String(format: "%02d", number))
+                .font(.system(size: 11, weight: .bold, design: .monospaced))
+                .foregroundStyle(accent)
+                .frame(width: 28, height: 28)
                 .background(RedTheme.paper, in: Circle())
                 .overlay { Circle().strokeBorder(accent.opacity(0.35), lineWidth: 1.5) }
-                .padding(.top, 18)
-            VStack(alignment: .leading, spacing: 11) {
-                HStack(spacing: 8) {
-                    ArenaMapLabel(name: veto.name, size: 34).font(.subheadline.bold())
-                        .opacity(veto.type == 1 ? 0.65 : 1)
-                    Spacer(minLength: 4)
-                    Label(veto.action, systemImage: actionIcon).font(.system(size: 10, weight: .bold))
-                        .foregroundStyle(accent).padding(.horizontal, 8).padding(.vertical, 6)
-                        .background(accent.opacity(0.08), in: Capsule())
+
+            if !isLast {
+                Rectangle()
+                    .fill(accent.opacity(0.2))
+                    .frame(width: 1.5)
+                    .frame(maxHeight: .infinity)
+                    .padding(.vertical, 3)
+            }
+        }
+        .frame(width: 28)
+    }
+
+    private var cardContent: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            teamActionHeader
+            mapInfoRow
+        }
+        .padding(13)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(RedTheme.card, in: RoundedRectangle(cornerRadius: 15))
+        .overlay {
+            RoundedRectangle(cornerRadius: 15)
+                .strokeBorder(cardBorderColor, lineWidth: 1)
+        }
+    }
+
+    private var cardBorderColor: Color {
+        if veto.type == 2 { return RedTheme.red.opacity(0.22) }
+        if veto.type == 3 { return Color(red: 0.95, green: 0.55, blue: 0.1).opacity(0.22) }
+        return Color.primary.opacity(0.04)
+    }
+
+    private var teamActionHeader: some View {
+        HStack(alignment: .center, spacing: 8) {
+            HStack(spacing: 6) {
+                if !veto.teamLogo.isEmpty {
+                    ArenaAvatar(url: veto.teamLogo, size: 20, contrastBackground: true)
+                } else if veto.type == 3 {
+                    Image(systemName: "scalemass.fill")
+                        .font(.system(size: 12))
+                        .foregroundStyle(.secondary)
                 }
-                HStack(spacing: 7) {
-                    if !veto.teamLogo.isEmpty { ArenaAvatar(url: veto.teamLogo, size: 18, contrastBackground: true) }
-                    Text(veto.teamName.isEmpty ? (veto.type == 3 ? "双方剩余地图" : "队伍待定") : veto.teamName)
-                        .font(.caption).foregroundStyle(.secondary)
-                    if veto.type == 3 { Text("· 决胜地图").font(.caption).foregroundStyle(.secondary) }
+                Text(veto.teamName.isEmpty ? (veto.type == 3 ? "双方剩余地图" : "队伍待定") : veto.teamName)
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundStyle(.primary)
+                    .lineLimit(1)
+            }
+
+            HStack(spacing: 4) {
+                Image(systemName: actionIcon)
+                    .font(.system(size: 10, weight: .bold))
+                Text(veto.action)
+                    .font(.system(size: 11, weight: .heavy))
+            }
+            .foregroundStyle(accent)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 3)
+            .background(accent.opacity(veto.type == 2 ? 0.14 : 0.08), in: Capsule())
+
+            Spacer(minLength: 4)
+
+            Text(veto.type == 1 ? "BAN" : (veto.type == 2 ? "PICK" : "DECIDER"))
+                .font(.system(size: 9, weight: .bold, design: .monospaced))
+                .foregroundStyle(accent.opacity(0.8))
+        }
+    }
+
+    private var mapInfoRow: some View {
+        HStack(spacing: 10) {
+            ArenaMapIcon(name: veto.name, size: 34)
+
+            VStack(alignment: .leading, spacing: 2) {
+                HStack(spacing: 6) {
+                    Text(veto.name)
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundStyle(veto.type == 1 ? .secondary : .primary)
+
+                    if veto.type == 2 {
+                        Text("自选图")
+                            .font(.system(size: 9, weight: .bold))
+                            .foregroundStyle(RedTheme.red)
+                            .padding(.horizontal, 5)
+                            .padding(.vertical, 1)
+                            .background(RedTheme.red.opacity(0.1), in: RoundedRectangle(cornerRadius: 3))
+                    } else if veto.type == 3 {
+                        Text("决胜地图")
+                            .font(.system(size: 9, weight: .bold))
+                            .foregroundStyle(Color(red: 0.95, green: 0.55, blue: 0.1))
+                            .padding(.horizontal, 5)
+                            .padding(.vertical, 1)
+                            .background(Color(red: 0.95, green: 0.55, blue: 0.1).opacity(0.12), in: RoundedRectangle(cornerRadius: 3))
+                    }
                 }
-            }.padding(14).frame(maxWidth: .infinity, alignment: .leading)
-                .background(RedTheme.card, in: RoundedRectangle(cornerRadius: 15))
-        }.padding(.bottom, isLast ? 0 : 10)
-            .background(alignment: .topLeading) {
-                if !isLast {
-                    GeometryReader { geometry in
-                        Rectangle().fill(RedTheme.red.opacity(0.16)).frame(width: 1.5, height: max(0, geometry.size.height - 14)).offset(x: 13.25, y: 45)
-                    }.accessibilityHidden(true)
+
+                if let mapIdentity = ArenaMapIdentity(name: veto.name) {
+                    Text(mapIdentity.nameEn.capitalized)
+                        .font(.system(size: 10, weight: .medium, design: .monospaced))
+                        .foregroundStyle(.secondary.opacity(0.8))
                 }
             }
-            .accessibilityElement(children: .combine)
-            .accessibilityLabel("第 \(number) 步，\(veto.teamName.isEmpty ? "双方" : veto.teamName)，\(veto.action)，\(veto.name)")
+
+            Spacer()
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 8)
+        .background(mapRowBackground, in: RoundedRectangle(cornerRadius: 10))
+    }
+
+    private var mapRowBackground: Color {
+        if veto.type == 2 { return RedTheme.red.opacity(0.04) }
+        if veto.type == 3 { return Color(red: 0.95, green: 0.55, blue: 0.1).opacity(0.04) }
+        return Color.primary.opacity(0.02)
     }
 }
 
