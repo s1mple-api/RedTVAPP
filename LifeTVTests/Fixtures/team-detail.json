@@ -1,0 +1,416 @@
+{
+  "code": 0,
+  "message": "success",
+  "result": {
+    "hltvId": 7020,
+    "hltvRank": 1,
+    "hltvScore": 904,
+    "id": 0,
+    "isSupportTeam": 1,
+    "lastYearPlayerList": [
+      {
+        "logo": "https://cdn.wmpvp.com/appengine/4F68262C8AF046ADB020E7DE658DAC8A-1793564064063.png",
+        "name": "iDISBALANCE",
+        "playerId": 14273,
+        "ylabels": [
+          {
+            "status": 1,
+            "style": "left:29.280503428275622%; width:17.446932094568375%;"
+          },
+          {
+            "status": 3,
+            "style": "left:46.727435522844004%; width:1.7942104684208906%;"
+          }
+        ]
+      },
+      {
+        "logo": "https://cdn.wmpvp.com/appengine/5B8D14A197404C239420837E11CB68E3-1793564307446.png",
+        "name": "zweih",
+        "playerId": 23685,
+        "ylabels": [
+          {
+            "status": 1,
+            "style": "left:87.89102754379093%; width:4.147860607265441%;"
+          },
+          {
+            "status": 3,
+            "style": "left:92.03888815105637%; width:0.30342490599249355%;"
+          }
+        ]
+      },
+      {
+        "logo": "https://cdn.wmpvp.com/appengine/E131EB34B1DF42CFB52F6E043604FAB3-1793565414211.png",
+        "name": "zont1x",
+        "playerId": 20423,
+        "ylabels": [
+          {
+            "status": 1,
+            "style": "left:69.3568228694161%; width:20.127185430835404%;"
+          },
+          {
+            "status": 3,
+            "style": "left:89.48400830025152%; width:2.55487985080485%;"
+          },
+          {
+            "status": 1,
+            "style": "left:92.03888815105637%; width:7.961111848943633%;"
+          }
+        ]
+      },
+      {
+        "logo": "https://cdn.wmpvp.com/appengine/2B397DEFCAED4F4797D0217E581BFD67-1793560679614.png",
+        "name": "S1ren",
+        "playerId": 18506,
+        "ylabels": [
+          {
+            "status": 1,
+            "style": "left:56.361176288105675%; width:12.66693626648524%;"
+          },
+          {
+            "status": 3,
+            "style": "left:69.02811255459092%; width:0.986130944475604%;"
+          }
+        ]
+      },
+      {
+        "logo": "https://cdn.wmpvp.com/appengine/0A25A9CB93EB401B86EDDC65255B45F9-1793565416614.png",
+        "name": "magixx",
+        "playerId": 18317,
+        "ylabels": [
+          {
+            "status": 1,
+            "style": "left:34.51352949794477%; width:53.37749804584615%;"
+          },
+          {
+            "status": 3,
+            "style": "left:87.89102754379093%; width:4.147860607265441%;"
+          },
+          {
+            "status": 1,
+            "style": "left:92.03888815105637%; width:7.961111848943633%;"
+          }
+        ]
+      },
+      {
+        "logo": "https://cdn.wmpvp.com/appengine/926EE409AB14406F838D1B36F7567804-1793560991561.png",
+        "name": "KaiR0N-",
+        "playerId": 19920,
+        "ylabels": [
+          {
+            "status": 1,
+            "style": "left:53.98434785783114%; width:1.3654120769662208%;"
+          }
+        ]
+      }
+    ],
+    "logo": "https://cdn.wmpvp.com/appengine/68495320C8E443539EAD02A4B9FF87A9-1793562191182.png",
+    "logoBlack": null,
+    "name": "Spirit",
+    "namiId": 3430,
+    "playerList": [
+      {
+        "age": 23,
+        "coach": false,
+        "country": "Russia",
+        "countryLogo": "https://img.dota2.com.cn/app/49/ab/49ab60ad7fe9445505e49ddce7321c4f1584531029.png",
+        "logo": "https://cdn.wmpvp.com/appengine/0A25A9CB93EB401B86EDDC65255B45F9-1793565416614.png",
+        "maps": 1211,
+        "name": "magixx",
+        "playerId": 18317,
+        "position": 2,
+        "positions": [
+          2
+        ],
+        "rating": 1.05,
+        "status": 1,
+        "timeOnTeam": "7年",
+        "trophies": null,
+        "winRate": null
+      },
+      {
+        "age": 19,
+        "coach": false,
+        "country": "Russia",
+        "countryLogo": "https://img.dota2.com.cn/app/49/ab/49ab60ad7fe9445505e49ddce7321c4f1584531029.png",
+        "logo": "https://cdn.wmpvp.com/appengine/E0508C4B1BA84892AECBBE24803021E1-1793565416063.png",
+        "maps": 596,
+        "name": "donk",
+        "playerId": 21167,
+        "position": 2,
+        "positions": [
+          2
+        ],
+        "rating": 1.39,
+        "status": 1,
+        "timeOnTeam": "3年",
+        "trophies": null,
+        "winRate": null
+      },
+      {
+        "age": 21,
+        "coach": false,
+        "country": "Ukraine",
+        "countryLogo": "https://img.dota2.com.cn/app/43/43/4343c40fe0f336b322d44fd03067c87d1584531030.png",
+        "logo": "https://cdn.wmpvp.com/appengine/E131EB34B1DF42CFB52F6E043604FAB3-1793565414211.png",
+        "maps": 566,
+        "name": "zont1x",
+        "playerId": 20423,
+        "position": 2,
+        "positions": [
+          2
+        ],
+        "rating": 1.08,
+        "status": 1,
+        "timeOnTeam": "3年",
+        "trophies": null,
+        "winRate": null
+      },
+      {
+        "age": 25,
+        "coach": false,
+        "country": "Russia",
+        "countryLogo": "https://img.dota2.com.cn/app/49/ab/49ab60ad7fe9445505e49ddce7321c4f1584531029.png",
+        "logo": "https://cdn.wmpvp.com/appengine/2830EFAA0D0E4D759D11B17260570D68-1793565413662.png",
+        "maps": 481,
+        "name": "sh1ro",
+        "playerId": 16920,
+        "position": 3,
+        "positions": [
+          1,
+          2
+        ],
+        "rating": 1.18,
+        "status": 1,
+        "timeOnTeam": "2年",
+        "trophies": null,
+        "winRate": null
+      },
+      {
+        "age": 25,
+        "coach": false,
+        "country": "Belarus",
+        "countryLogo": "https://img.dota2.com.cn/app/8f/dd/8fdd011738f3536c56755ec9c99684bc1584531027.png",
+        "logo": "https://cdn.wmpvp.com/appengine/7CFE15BB83D940EEA4529A8121FBFD63-1793565419265.png",
+        "maps": 196,
+        "name": "tN1R",
+        "playerId": 19808,
+        "position": 2,
+        "positions": [
+          2
+        ],
+        "rating": 1.03,
+        "status": 1,
+        "timeOnTeam": "1年",
+        "trophies": null,
+        "winRate": null
+      },
+      {
+        "age": 29,
+        "coach": false,
+        "country": "Russia",
+        "countryLogo": "https://img.dota2.com.cn/app/49/ab/49ab60ad7fe9445505e49ddce7321c4f1584531029.png",
+        "logo": "https://cdn.wmpvp.com/appengine/D67D2B3541804933A7706B7221AD028C-1793565413489.png",
+        "maps": 1249,
+        "name": "chopper",
+        "playerId": 7716,
+        "position": 6,
+        "positions": [
+          2,
+          4
+        ],
+        "rating": 0.99,
+        "status": 3,
+        "timeOnTeam": "7年",
+        "trophies": null,
+        "winRate": null
+      }
+    ],
+    "rank": 4,
+    "rankHistory": [
+      {
+        "desc": "565",
+        "stats": "6",
+        "subDesc": null,
+        "time": "2025-10-27",
+        "timeStamp": 0
+      },
+      {
+        "desc": "520",
+        "stats": "6",
+        "subDesc": null,
+        "time": "2025-11-03",
+        "timeStamp": 0
+      },
+      {
+        "desc": "442",
+        "stats": "6",
+        "subDesc": null,
+        "time": "2025-11-10",
+        "timeStamp": 0
+      },
+      {
+        "desc": "358",
+        "stats": "6",
+        "subDesc": null,
+        "time": "2025-11-17",
+        "timeStamp": 0
+      },
+      {
+        "desc": "361",
+        "stats": "6",
+        "subDesc": null,
+        "time": "2025-11-24",
+        "timeStamp": 0
+      },
+      {
+        "desc": "355",
+        "stats": "6",
+        "subDesc": null,
+        "time": "2025-12-01",
+        "timeStamp": 0
+      }
+    ],
+    "ratingHistory": null,
+    "score": 1845,
+    "talkId": 109,
+    "teamHonorList": [
+      {
+        "hasEvent": true,
+        "id": 8249,
+        "logo": "https://img-cdn.hltv.org/eventlogo/8k86fLI5ZsXieCf_Bo3p4w.png?ixlib=java-2.1.0&w=50&s=2c851c14ab51779113821996602f1dfa",
+        "name": "BLAST公开赛S2-2026",
+        "players": null,
+        "rank": "冠军",
+        "timestamp": 1788710399000,
+        "type": null
+      },
+      {
+        "hasEvent": true,
+        "id": 8261,
+        "logo": "https://img-cdn.hltv.org/eventlogo/RBx1xvPDCaVQekE7sx-S6R.png?ixlib=java-2.1.0&w=50&s=46ec63855f9a5f2b3f9a126135061170",
+        "name": "EWC-2026",
+        "players": null,
+        "rank": "冠军",
+        "timestamp": 1787500799000,
+        "type": null
+      },
+      {
+        "hasEvent": true,
+        "id": 8049,
+        "logo": "https://img-cdn.hltv.org/eventlogo/IOejg3Hnz60k38JsoCvMXq.png?ixlib=java-2.1.0&w=50&s=7d5c6aa29935d32e5aa26c80c83d4698",
+        "name": "PGL阿斯塔纳站-2026",
+        "players": null,
+        "rank": "冠军",
+        "timestamp": 1779012000000,
+        "type": null
+      },
+      {
+        "hasEvent": true,
+        "id": 7910,
+        "logo": "https://img-cdn.hltv.org/eventlogo/CJvqOkI-PrW8BhN2jleFfc.png?ixlib=java-2.1.0&w=50&s=fa468bb28bfdfa10a21f538d1d659c93",
+        "name": "BLAST赏金赛S2线下决赛-2025",
+        "players": null,
+        "rank": "冠军",
+        "timestamp": 1755424800000,
+        "type": null
+      },
+      {
+        "hasEvent": true,
+        "id": 8038,
+        "logo": "https://img-cdn.hltv.org/eventtrophy/kz5mo2yl7o0iwRjx3z3hlP.png?ixlib=java-2.1.0&w=200&s=7ad3e2b6cffdbef6bd48257195788151",
+        "name": "IEM科隆站-2025",
+        "players": null,
+        "rank": "冠军",
+        "timestamp": 1754215200000,
+        "type": null
+      },
+      {
+        "hasEvent": true,
+        "id": 8045,
+        "logo": "https://img-cdn.hltv.org/eventtrophy/Ar0GZFlqv5inDS4Pjd5qrI.png?ixlib=java-2.1.0&w=200&s=3dedcacc3cb360797aa861139b26fad0",
+        "name": "PGL阿斯塔纳站-2025",
+        "players": null,
+        "rank": "冠军",
+        "timestamp": 1747562400000,
+        "type": null
+      }
+    ],
+    "vrsRankHistory": [
+      {
+        "desc": "1848",
+        "stats": "4",
+        "subDesc": "chopper,donk,sh1ro,zont1x,zweih",
+        "time": "2025-10-27",
+        "timeStamp": 0
+      },
+      {
+        "desc": "1773",
+        "stats": "8",
+        "subDesc": "chopper,donk,sh1ro,zont1x,zweih",
+        "time": "2025-11-03",
+        "timeStamp": 0
+      },
+      {
+        "desc": "1774",
+        "stats": "7",
+        "subDesc": "chopper,sh1ro,tN1R,donk,zweih",
+        "time": "2025-11-10",
+        "timeStamp": 0
+      },
+      {
+        "desc": "1757",
+        "stats": "7",
+        "subDesc": "chopper,sh1ro,tN1R,donk,zweih",
+        "time": "2025-11-17",
+        "timeStamp": 0
+      },
+      {
+        "desc": "1742",
+        "stats": "7",
+        "subDesc": "chopper,sh1ro,tN1R,donk,zweih",
+        "time": "2025-11-24",
+        "timeStamp": 0
+      },
+      {
+        "desc": "1717",
+        "stats": "7",
+        "subDesc": "chopper,donk,sh1ro,tN1R,zweih",
+        "time": "2025-12-01",
+        "timeStamp": 0
+      }
+    ],
+    "whiteLogo": "https://cdn.wmpvp.com/appengine/7B4F6842994B433C95FC69E81B1D6287-1793562191517.png",
+    "xlabels": [
+      {
+        "index": 1,
+        "name": "2016",
+        "style": "0.02528540883270779%"
+      },
+      {
+        "index": 2,
+        "name": "2017",
+        "style": "9.27974504160376%"
+      },
+      {
+        "index": 3,
+        "name": "2018",
+        "style": "18.508919265542104%"
+      },
+      {
+        "index": 4,
+        "name": "2019",
+        "style": "27.73809348948045%"
+      },
+      {
+        "index": 5,
+        "name": "2020",
+        "style": "36.96726771341879%"
+      },
+      {
+        "index": 6,
+        "name": "2021",
+        "style": "46.221727346189844%"
+      }
+    ]
+  }
+}

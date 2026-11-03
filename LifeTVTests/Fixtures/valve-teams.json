@@ -1,0 +1,82 @@
+{
+  "code": 0,
+  "message": "success",
+  "result": [
+    {
+      "hltvId": 4494,
+      "players": [
+        {
+          "hltvId": 18072,
+          "logo": "https://cdn.wmpvp.com/appengine/3AC1861316174FCE80925FE366BBB8E1-1793562505028.png",
+          "name": "torzsi"
+        },
+        {
+          "hltvId": 18221,
+          "logo": "https://cdn.wmpvp.com/appengine/06CACA8625E74F3C855D9F2CBC8BD73B-1793562505990.png",
+          "name": "Spinx"
+        },
+        {
+          "hltvId": 20312,
+          "logo": "https://cdn.wmpvp.com/appengine/1A540610CF884843BF045CF66BC89CBF-1793562505468.png",
+          "name": "xertioN"
+        },
+        {
+          "hltvId": 22279,
+          "logo": "https://cdn.wmpvp.com/appengine/A5DEAE0B0C4F46218E56AE2BFFBA64EB-1793562505888.png",
+          "name": "PR"
+        },
+        {
+          "hltvId": 24457,
+          "logo": "https://cdn.wmpvp.com/appengine/729831B5DC65453781EC463F4FB0E1C8-1793562506617.png",
+          "name": "xelex"
+        }
+      ],
+      "rank": 1,
+      "rankingChanges": 0,
+      "region": 1,
+      "score": 1963,
+      "teamId": 1065,
+      "teamLogo": "https://cdn.wmpvp.com/appengine/7EDC7FBDF9674B6980C2EC43DDF17B92-1793558868576.png",
+      "teamLogoBlack": "https://cdn.wmpvp.com/appengine/A2EF78979F4942E7B7574CD12EB2F14E-1793558879092.png",
+      "teamName": "MOUZ"
+    },
+    {
+      "hltvId": 9565,
+      "players": [
+        {
+          "hltvId": 11816,
+          "logo": "https://cdn.wmpvp.com/appengine/77360660A347456BABAC154024ADF78D-1793560652134.png",
+          "name": "ropz"
+        },
+        {
+          "hltvId": 11893,
+          "logo": "https://cdn.wmpvp.com/appengine/DEAAE4F75E9949A1BDDF54139E1C6A41-1793560653356.png",
+          "name": "ZywOo"
+        },
+        {
+          "hltvId": 16693,
+          "logo": "https://cdn.wmpvp.com/appengine/0A517AEB815C4F008BD7D089293BF3DE-1793560651746.png",
+          "name": "flameZ"
+        },
+        {
+          "hltvId": 18462,
+          "logo": "https://cdn.wmpvp.com/appengine/14E3F48B359D4BF19AF26D5227833151-1793560652384.png",
+          "name": "mezii"
+        },
+        {
+          "hltvId": null,
+          "logo": null,
+          "name": "jL"
+        }
+      ],
+      "rank": 2,
+      "rankingChanges": 0,
+      "region": 1,
+      "score": 1925,
+      "teamId": 5796,
+      "teamLogo": "https://cdn.wmpvp.com/appengine/3E02825BCCBD4E3482B052155CB2AC16-1793565410407.png",
+      "teamLogoBlack": "https://cdn.wmpvp.com/appengine/EDA4FFC0B31A4F4694EA4AA58A58799A-1793565409893.png",
+      "teamName": "Vitality"
+    }
+  ]
+}

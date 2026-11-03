@@ -1,0 +1,567 @@
+{
+  "code": 0,
+  "message": null,
+  "result": {
+    "eventDetail": {
+      "background": "",
+      "description": "",
+      "endTime": 1794153599000,
+      "eventId": 8245,
+      "eventSubType": 3,
+      "eventType": 1,
+      "hot": false,
+      "id": 3035,
+      "important": true,
+      "level": "T1",
+      "liveType": 0,
+      "logo": "https://cdn.wmpvp.com/appengine/350F79D8AD2F46DAAA37C3239F9E2F94-1740683144798.png",
+      "name": "Intel Extreme Masters BeiJing 2026",
+      "nameZh": "IEM北京站-2026",
+      "prize": "$1,000,000",
+      "prizeList": [
+        {
+          "prize1": "$125,000",
+          "prize2": null,
+          "prize3": null,
+          "rank": "1st",
+          "teamId": null
+        },
+        {
+          "prize1": "$50,000",
+          "prize2": null,
+          "prize3": null,
+          "rank": "2nd",
+          "teamId": null
+        },
+        {
+          "prize1": "$30,000",
+          "prize2": null,
+          "prize3": null,
+          "rank": "3rd",
+          "teamId": null
+        },
+        {
+          "prize1": "$20,000",
+          "prize2": null,
+          "prize3": null,
+          "rank": "4th",
+          "teamId": null
+        },
+        {
+          "prize1": "$12,500",
+          "prize2": null,
+          "prize3": null,
+          "rank": "5-6th",
+          "teamId": null
+        },
+        {
+          "prize1": "$12,500",
+          "prize2": null,
+          "prize3": null,
+          "rank": "5-6th",
+          "teamId": null
+        }
+      ],
+      "publishTime": 1738753254000,
+      "publishType": 1,
+      "ratingClosed": true,
+      "regionDTO": {
+        "id": 46,
+        "image": "https://img.dota2.com.cn/app/fd/ff/fdff1663ef2ffe842006b81f6a4beb711584531027.png",
+        "location": "China",
+        "locationCn": "中国"
+      },
+      "scheduledTime": null,
+      "startTime": 1793617200000,
+      "status": 1,
+      "subImportant": null,
+      "teamDTOList": [
+        {
+          "id": 972,
+          "isSupportTeam": 1,
+          "location": null,
+          "logoBlack": "https://cdn.wmpvp.com/appengine/88B20094726241BF95055362A7A4FEC8-1793558824189.png",
+          "logoWhite": "https://cdn.wmpvp.com/appengine/0AB09E73707D4A6A9A2ADA09DC57BC38-1793558823617.png",
+          "name": "Falcons",
+          "playerDTOList": [
+            {
+              "coach": false,
+              "country": "丹麦",
+              "countryImage": "https://img.dota2.com.cn/app/89/89/8989c492a39b77330d8dcab47014fcda1584531028.png",
+              "id": 58265,
+              "image": "https://cdn.wmpvp.com/appengine/8C7B1701A54B487386D7087FAAAA8CF9-1793564833858.png",
+              "name": "karrigan",
+              "playerId": 429,
+              "steamId": null,
+              "teamId": 11283
+            },
+            {
+              "coach": false,
+              "country": "波黑",
+              "countryImage": "https://img.dota2.com.cn/app/de/3d/de3dc74fd1f34ec54a2a84e75b7295381584531027.png",
+              "id": 58927,
+              "image": "https://cdn.wmpvp.com/appengine/B20BFD5B7C0B4F6982ED8DACB7F84C03-1793564832395.png",
+              "name": "NiKo",
+              "playerId": 3741,
+              "steamId": null,
+              "teamId": 11283
+            },
+            {
+              "coach": false,
+              "country": "丹麦",
+              "countryImage": "https://img.dota2.com.cn/app/89/89/8989c492a39b77330d8dcab47014fcda1584531028.png",
+              "id": 62190,
+              "image": "https://cdn.wmpvp.com/appengine/57827C612E6C48CEB6693F075E3272A5-1793564831872.png",
+              "name": "TeSeS",
+              "playerId": 12018,
+              "steamId": null,
+              "teamId": 11283
+            },
+            {
+              "coach": false,
+              "country": "俄罗斯",
+              "countryImage": "https://img.dota2.com.cn/app/49/ab/49ab60ad7fe9445505e49ddce7321c4f1584531029.png",
+              "id": 61679,
+              "image": "https://cdn.wmpvp.com/appengine/C3578D00AED744089DB30E4A1315ACD0-1793564832430.png",
+              "name": "m0NESY",
+              "playerId": 19230,
+              "steamId": null,
+              "teamId": 11283
+            },
+            {
+              "coach": false,
+              "country": "俄罗斯",
+              "countryImage": "https://img.dota2.com.cn/app/49/ab/49ab60ad7fe9445505e49ddce7321c4f1584531029.png",
+              "id": 64195,
+              "image": "https://cdn.wmpvp.com/appengine/1ADD168465C84BD296F06B48A18B03AF-1793564832137.png",
+              "name": "kyousuke",
+              "playerId": 24177,
+              "steamId": null,
+              "teamId": 11283
+            },
+            {
+              "coach": true,
+              "country": "丹麦",
+              "countryImage": "https://img.dota2.com.cn/app/89/89/8989c492a39b77330d8dcab47014fcda1584531028.png",
+              "id": null,
+              "image": "https://img-cdn.hltv.org/playerbodyshot/tWScDg49uj85_LiYAnQyOM.png?ixlib=java-2.1.0&w=400&s=72e9ec44aa83c90e300af089c062bdcf",
+              "name": "zonic",
+              "playerId": 21,
+              "steamId": null,
+              "teamId": 11283
+            }
+          ],
+          "rank": 6,
+          "talkId": 117,
+          "teamId": 11283,
+          "vrsRank": 7
+        },
+        {
+          "id": 45,
+          "isSupportTeam": 1,
+          "location": null,
+          "logoBlack": "https://cdn.wmpvp.com/appengine/0A32EB1F8A3543DD8F5A7F73FF9214AA-1793563637514.png",
+          "logoWhite": "https://cdn.wmpvp.com/appengine/13346A1A8DE84C959FBA88D22AA04079-1793563637459.png",
+          "name": "FURIA",
+          "playerDTOList": [
+            {
+              "coach": false,
+              "country": "巴西",
+              "countryImage": "https://img.dota2.com.cn/app/b8/a5/b8a5ce4dbff3e1ea3327483e8d29c4a21584531027.png",
+              "id": 62674,
+              "image": "https://cdn.wmpvp.com/appengine/0EA98DD568824948A58C51EFB43276D7-1793565122697.png",
+              "name": "FalleN",
+              "playerId": 2023,
+              "steamId": null,
+              "teamId": 8297
+            },
+            {
+              "coach": false,
+              "country": "巴西",
+              "countryImage": "https://img.dota2.com.cn/app/b8/a5/b8a5ce4dbff3e1ea3327483e8d29c4a21584531027.png",
+              "id": 57971,
+              "image": "https://cdn.wmpvp.com/appengine/C00DA15ADCC5405C807A8AEA6514E266-1793565123000.png",
+              "name": "yuurih",
+              "playerId": 12553,
+              "steamId": null,
+              "teamId": 8297
+            },
+            {
+              "coach": false,
+              "country": "拉脱维亚",
+              "countryImage": "https://img.dota2.com.cn/app/35/af/35af568800c2ad2d57d132b8cceeadb21584531028.png",
+              "id": 61866,
+              "image": "https://cdn.wmpvp.com/appengine/C853B6A32599426F96527F070E3F5A36-1793565122714.png",
+              "name": "YEKINDAR",
+              "playerId": 13915,
+              "steamId": null,
+              "teamId": 8297
+            },
+            {
+              "coach": false,
+              "country": "巴西",
+              "countryImage": "https://img.dota2.com.cn/app/b8/a5/b8a5ce4dbff3e1ea3327483e8d29c4a21584531027.png",
+              "id": 23138,
+              "image": "https://cdn.wmpvp.com/appengine/EC74AC204DE64D18BA60F4B14683AB36-1793565122390.png",
+              "name": "KSCERATO",
+              "playerId": 15631,
+              "steamId": null,
+              "teamId": 8297
+            },
+            {
+              "coach": false,
+              "country": "哈萨克斯坦",
+              "countryImage": "https://img.dota2.com.cn/app/39/50/3950e4f4d949a854dca6de1c68cbf8161584531028.png",
+              "id": 64154,
+              "image": "https://cdn.wmpvp.com/appengine/F0DDD2BE6F9B4A388826A8FCBE667498-1793565126066.png",
+              "name": "molodoy",
+              "playerId": 24144,
+              "steamId": null,
+              "teamId": 8297
+            },
+            {
+              "coach": true,
+              "country": "巴西",
+              "countryImage": "https://img.dota2.com.cn/app/b8/a5/b8a5ce4dbff3e1ea3327483e8d29c4a21584531027.png",
+              "id": null,
+              "image": "https://img-cdn.hltv.org/playerbodyshot/tC0c78cxXd6470GcmDYM_5.png?ixlib=java-2.1.0&w=400&s=55a2a493d40b458f6d6e3d375e9fef66",
+              "name": "sidde",
+              "playerId": 24267,
+              "steamId": null,
+              "teamId": 8297
+            }
+          ],
+          "rank": 3,
+          "talkId": 110,
+          "teamId": 8297,
+          "vrsRank": 3
+        },
+        {
+          "id": 9,
+          "isSupportTeam": 1,
+          "location": null,
+          "logoBlack": "https://cdn.wmpvp.com/appengine/A2EF78979F4942E7B7574CD12EB2F14E-1793558879092.png",
+          "logoWhite": "https://cdn.wmpvp.com/appengine/7EDC7FBDF9674B6980C2EC43DDF17B92-1793558868576.png",
+          "name": "MOUZ",
+          "playerDTOList": [
+            {
+              "coach": false,
+              "country": "匈牙利",
+              "countryImage": "https://img.dota2.com.cn/app/51/fd/51fdee7f7e8a962c1b3ea7d0be5cb9881584531028.png",
+              "id": 60023,
+              "image": "https://cdn.wmpvp.com/appengine/3AC1861316174FCE80925FE366BBB8E1-1793562505028.png",
+              "name": "torzsi",
+              "playerId": 18072,
+              "steamId": null,
+              "teamId": 4494
+            },
+            {
+              "coach": false,
+              "country": "以色列",
+              "countryImage": "https://img.dota2.com.cn/app/6a/f8/6af83a58671a838bc47caa28319157581584531028.png",
+              "id": 56846,
+              "image": "https://cdn.wmpvp.com/appengine/06CACA8625E74F3C855D9F2CBC8BD73B-1793562505990.png",
+              "name": "Spinx",
+              "playerId": 18221,
+              "steamId": null,
+              "teamId": 4494
+            },
+            {
+              "coach": false,
+              "country": "以色列",
+              "countryImage": "https://img.dota2.com.cn/app/6a/f8/6af83a58671a838bc47caa28319157581584531028.png",
+              "id": 58255,
+              "image": "https://cdn.wmpvp.com/appengine/1A540610CF884843BF045CF66BC89CBF-1793562505468.png",
+              "name": "xertioN",
+              "playerId": 20312,
+              "steamId": null,
+              "teamId": 4494
+            },
+            {
+              "coach": false,
+              "country": "捷克",
+              "countryImage": "https://img.dota2.com.cn/app/5c/cb/5ccb4a671e57dcc3b1b53732dd93e3b11584531028.png",
+              "id": 60786,
+              "image": "https://cdn.wmpvp.com/appengine/A5DEAE0B0C4F46218E56AE2BFFBA64EB-1793562505888.png",
+              "name": "PR",
+              "playerId": 22279,
+              "steamId": null,
+              "teamId": 4494
+            },
+            {
+              "coach": false,
+              "country": "匈牙利",
+              "countryImage": "https://img.dota2.com.cn/app/51/fd/51fdee7f7e8a962c1b3ea7d0be5cb9881584531028.png",
+              "id": 64588,
+              "image": "https://cdn.wmpvp.com/appengine/729831B5DC65453781EC463F4FB0E1C8-1793562506617.png",
+              "name": "xelex",
+              "playerId": 24457,
+              "steamId": null,
+              "teamId": 4494
+            },
+            {
+              "coach": true,
+              "country": "丹麦",
+              "countryImage": "https://img.dota2.com.cn/app/89/89/8989c492a39b77330d8dcab47014fcda1584531028.png",
+              "id": null,
+              "image": "https://img-cdn.hltv.org/playerbodyshot/RCbEswYQ10m-Y5N-eZ6wmi.png?ixlib=java-2.1.0&w=400&s=a170fb67230f6076a49ce28a6606f282",
+              "name": "sycrone",
+              "playerId": 9295,
+              "steamId": null,
+              "teamId": 4494
+            }
+          ],
+          "rank": 4,
+          "talkId": 119,
+          "teamId": 4494,
+          "vrsRank": 1
+        },
+        {
+          "id": 1,
+          "isSupportTeam": 1,
+          "location": null,
+          "logoBlack": "https://cdn.wmpvp.com/appengine/3CA1662983354730A80FE8825ADE479E-1793563246396.png",
+          "logoWhite": "https://cdn.wmpvp.com/appengine/A4DB0446A4AE4A6FBC247F39B9571FD5-1793563248784.png",
+          "name": "Natus Vincere",
+          "playerDTOList": [
+            {
+              "coach": false,
+              "country": "芬兰",
+              "countryImage": "https://img.dota2.com.cn/app/7b/40/7b40c68817b3f2d04766e9121ac761671584531028.png",
+              "id": 58926,
+              "image": "https://cdn.wmpvp.com/appengine/4A8800C1689D4C1C86F19A8975C1592D-1793565386760.png",
+              "name": "Aleksib",
+              "playerId": 9816,
+              "steamId": null,
+              "teamId": 4608
+            },
+            {
+              "coach": false,
+              "country": "罗马尼亚",
+              "countryImage": "https://img.dota2.com.cn/app/e2/5b/e25bcf3beefedb6a64072b2ada8230ae1584531029.png",
+              "id": 22928,
+              "image": "https://cdn.wmpvp.com/appengine/245377BF040C43BEA41789D7C06D1EA8-1793565386446.png",
+              "name": "iM",
+              "playerId": 14759,
+              "steamId": null,
+              "teamId": 4608
+            },
+            {
+              "coach": false,
+              "country": "乌克兰",
+              "countryImage": "https://img.dota2.com.cn/app/43/43/4343c40fe0f336b322d44fd03067c87d1584531030.png",
+              "id": 61867,
+              "image": "https://cdn.wmpvp.com/appengine/5A54C92BD1594969A0C5053F88A33129-1793565389491.png",
+              "name": "b1t",
+              "playerId": 18987,
+              "steamId": null,
+              "teamId": 4608
+            },
+            {
+              "coach": false,
+              "country": "乌克兰",
+              "countryImage": "https://img.dota2.com.cn/app/43/43/4343c40fe0f336b322d44fd03067c87d1584531030.png",
+              "id": 62965,
+              "image": "https://cdn.wmpvp.com/appengine/6B1569C4A18248F68767AE11CBEBCD43-1793565386200.png",
+              "name": "w0nderful",
+              "playerId": 20127,
+              "steamId": null,
+              "teamId": 4608
+            },
+            {
+              "coach": false,
+              "country": "塞尔维亚",
+              "countryImage": "https://cdn.wmpvp.com/appadmin/85123660514641418E19E5F36A1828CB-1586854143986.png",
+              "id": 61365,
+              "image": "https://cdn.wmpvp.com/appengine/8B67697EC09B40D5A920EB42FA44613D-1793565386724.png",
+              "name": "makazze",
+              "playerId": 22673,
+              "steamId": null,
+              "teamId": 4608
+            },
+            {
+              "coach": true,
+              "country": "乌克兰",
+              "countryImage": "https://img.dota2.com.cn/app/43/43/4343c40fe0f336b322d44fd03067c87d1584531030.png",
+              "id": null,
+              "image": "https://img-cdn.hltv.org/gallerypicture/Bj1oU0jZVczhZUb2vq6L1G.jpg?bg=3e4c54&h=400&ixlib=java-2.1.0&rect=1814%2C165%2C3650%2C3650&w=400&s=666425c33b56b9df541516475276f93b",
+              "name": "B1ad3",
+              "playerId": 472,
+              "steamId": null,
+              "teamId": 4608
+            }
+          ],
+          "rank": 11,
+          "talkId": 101,
+          "teamId": 4608,
+          "vrsRank": 15
+        },
+        {
+          "id": 72,
+          "isSupportTeam": 1,
+          "location": null,
+          "logoBlack": "https://cdn.wmpvp.com/appengine/60E63E5465EE46409BA6F2BC320FD0E8-1793564332152.png",
+          "logoWhite": "https://cdn.wmpvp.com/appengine/662FC90D4E3F4724BA37A97CF8DB58E1-1793564332169.png",
+          "name": "9z",
+          "playerDTOList": [
+            {
+              "coach": false,
+              "country": "乌拉圭",
+              "countryImage": "https://img.dota2.com.cn/app/91/4b/914b53d43a1a37882570d94e059557271584531030.png",
+              "id": 367,
+              "image": "https://cdn.wmpvp.com/appengine/F353D75552394DCB8F612E7F2FDDB28D-1793565441567.png",
+              "name": "max",
+              "playerId": 12092,
+              "steamId": null,
+              "teamId": 9996
+            },
+            {
+              "coach": false,
+              "country": "乌拉圭",
+              "countryImage": "https://img.dota2.com.cn/app/91/4b/914b53d43a1a37882570d94e059557271584531030.png",
+              "id": 504,
+              "image": "https://cdn.wmpvp.com/appengine/454A92AB446C487F84658D7DA7F01D11-1793565441399.png",
+              "name": "dgt",
+              "playerId": 14736,
+              "steamId": null,
+              "teamId": 9996
+            },
+            {
+              "coach": false,
+              "country": "阿根廷",
+              "countryImage": "https://img.dota2.com.cn/app/98/23/9823b33c08f603f3056458020d42864a1584531027.png",
+              "id": 56857,
+              "image": "https://cdn.wmpvp.com/appengine/91CF7186318E45EFB78106192063E7FB-1793565441052.png",
+              "name": "meyern",
+              "playerId": 14737,
+              "steamId": null,
+              "teamId": 9996
+            },
+            {
+              "coach": false,
+              "country": "阿根廷",
+              "countryImage": "https://img.dota2.com.cn/app/98/23/9823b33c08f603f3056458020d42864a1584531027.png",
+              "id": 57581,
+              "image": "https://cdn.wmpvp.com/appengine/918D83E15F1B46DDB5599EEB9271A19E-1793565442204.png",
+              "name": "luchov",
+              "playerId": 20394,
+              "steamId": null,
+              "teamId": 9996
+            },
+            {
+              "coach": false,
+              "country": "智利",
+              "countryImage": "https://img.dota2.com.cn/app/6a/a6/6aa676b2f3415ee9a366fec465e9304f1584531027.png",
+              "id": 61287,
+              "image": "https://cdn.wmpvp.com/appengine/0D93743ED79B46A4A4E6C12C3DA953B4-1793565441193.png",
+              "name": "HUASOPEEK",
+              "playerId": 22613,
+              "steamId": null,
+              "teamId": 9996
+            },
+            {
+              "coach": true,
+              "country": "巴西",
+              "countryImage": "https://img.dota2.com.cn/app/b8/a5/b8a5ce4dbff3e1ea3327483e8d29c4a21584531027.png",
+              "id": null,
+              "image": "https://img-cdn.hltv.org/playerbodyshot/4TJwT7MS3CMBAdMG12xwf3.png?ixlib=java-2.1.0&w=400&s=03a28225c922864c16d0777a5ea99647",
+              "name": "BIT",
+              "playerId": 555,
+              "steamId": null,
+              "teamId": 9996
+            }
+          ],
+          "rank": 15,
+          "talkId": 5261,
+          "teamId": 9996,
+          "vrsRank": 27
+        },
+        {
+          "id": 1575,
+          "isSupportTeam": 1,
+          "location": null,
+          "logoBlack": "https://cdn.wmpvp.com/appengine/F116E6AA3C084BE3BB2EC03FFF4C0232-1793563248970.png",
+          "logoWhite": "https://cdn.wmpvp.com/appengine/4E29A0F9A0114FF6A230F4C91940466F-1793563248570.png",
+          "name": "Aurora",
+          "playerDTOList": [
+            {
+              "coach": false,
+              "country": "土耳其",
+              "countryImage": "https://img.dota2.com.cn/app/25/7f/257f5e70300bcbecbe63dfe30063618e1584531030.png",
+              "id": 57085,
+              "image": "https://cdn.wmpvp.com/appengine/E4A09880A7E445C783FB5A26931D7955-1793564422815.png",
+              "name": "XANTARES",
+              "playerId": 7938,
+              "steamId": null,
+              "teamId": 11861
+            },
+            {
+              "coach": false,
+              "country": "土耳其",
+              "countryImage": "https://img.dota2.com.cn/app/25/7f/257f5e70300bcbecbe63dfe30063618e1584531030.png",
+              "id": 23627,
+              "image": "https://cdn.wmpvp.com/appengine/1B6536CD97514BA49ABF1940C7676AB7-1793564422825.png",
+              "name": "woxic",
+              "playerId": 8574,
+              "steamId": null,
+              "teamId": 11861
+            },
+            {
+              "coach": false,
+              "country": "芬兰",
+              "countryImage": "https://img.dota2.com.cn/app/7b/40/7b40c68817b3f2d04766e9121ac761671584531028.png",
+              "id": 62535,
+              "image": "https://cdn.wmpvp.com/appengine/70F8421B10A64E7DB15A6301F5FA31F4-1793564423145.png",
+              "name": "Jimpphat",
+              "playerId": 18850,
+              "steamId": null,
+              "teamId": 11861
+            },
+            {
+              "coach": false,
+              "country": "北马其顿",
+              "countryImage": "https://cdn.wmpvp.com/appadmin/11CE412ABC5441F39AC660176C3E6D6C-1597726932945.gif",
+              "id": 17612,
+              "image": "https://cdn.wmpvp.com/appengine/5F164C58FB0A48969D667CF2FFFE28A8-1793564425832.png",
+              "name": "kyxsan",
+              "playerId": 19677,
+              "steamId": null,
+              "teamId": 11861
+            },
+            {
+              "coach": false,
+              "country": "土耳其",
+              "countryImage": "https://img.dota2.com.cn/app/25/7f/257f5e70300bcbecbe63dfe30063618e1584531030.png",
+              "id": 42723,
+              "image": "https://cdn.wmpvp.com/appengine/7EB71FC08B31468194D33E5C8D48D23C-1793564422757.png",
+              "name": "Wicadia",
+              "playerId": 21243,
+              "steamId": null,
+              "teamId": 11861
+            },
+            {
+              "coach": true,
+              "country": "英国",
+              "countryImage": "https://img.dota2.com.cn/app/2e/75/2e752a0ba884acae6fff086c7070fc351584531028.png",
+              "id": null,
+              "image": "https://img-cdn.hltv.org/playerbodyshot/wTP8NJ4GsBqzIPgfAr6RHJ.png?ixlib=java-2.1.0&w=400&s=675b7f06dbb949469b7c83c3bf8b3e78",
+              "name": "ash",
+              "playerId": 8975,
+              "steamId": null,
+              "teamId": 11861
+            }
+          ],
+          "rank": 5,
+          "talkId": 5256,
+          "teamId": 11861,
+          "vrsRank": 5
+        }
+      ],
+      "teamNumber": 16,
+      "thumbnail": "https://cdn.wmpvp.com/appengine/CA09302191D74C1890CFE63A9426AEF5-1749668763384.png",
+      "topic": 0,
+      "type": 5,
+      "weight": 10020
+    }
+  }
+}
